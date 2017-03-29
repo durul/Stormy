@@ -19,17 +19,26 @@
 		2E3014141D2294C3007082AF /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3014121D229472007082AF /* Image.swift */; };
 		2E3014151D2294DD007082AF /* Current.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C92D6419C87DF7001C7229 /* Current.swift */; };
 		2E3014161D22A977007082AF /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3014121D229472007082AF /* Image.swift */; };
+		2E3646251E8AD5DA00C0151A /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3646241E8AD5DA00C0151A /* NotificationCenter.framework */; };
+		2E3646281E8AD5DA00C0151A /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3646271E8AD5DA00C0151A /* TodayViewController.swift */; };
+		2E36462B1E8AD5DA00C0151A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E3646291E8AD5DA00C0151A /* MainInterface.storyboard */; };
+		2E36462F1E8AD5DA00C0151A /* Stormy Today.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2E3646221E8AD5DA00C0151A /* Stormy Today.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2E3646341E8AD80600C0151A /* Current.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C92D6419C87DF7001C7229 /* Current.swift */; };
+		2E3646351E8AD80800C0151A /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3014121D229472007082AF /* Image.swift */; };
+		2E3646361E8ADBE500C0151A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 973F803A19C7867F00AC61CE /* Images.xcassets */; };
+		2E3646381E8AE1C000C0151A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E3646371E8AE1C000C0151A /* Default-568h@2x.png */; };
 		2E8668201D14861300FE044F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E86681F1D14861300FE044F /* AppDelegate.swift */; };
 		2E8668251D14861400FE044F /* MainTV.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E8668231D14861400FE044F /* MainTV.storyboard */; };
 		2E8668271D14861400FE044F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E8668261D14861400FE044F /* Assets.xcassets */; };
 		2E86682F1D1489FB00FE044F /* ViewControllerTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E86682E1D1489FB00FE044F /* ViewControllerTV.swift */; };
 		2E8668301D148A8500FE044F /* Current.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C92D6419C87DF7001C7229 /* Current.swift */; };
+		2E8D992E1E85BC0100D0BB91 /* StormyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8D992D1E85BC0100D0BB91 /* StormyTests.swift */; };
+		2E8D993C1E85C27F00D0BB91 /* mockData.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E8D993B1E85C27F00D0BB91 /* mockData.json */; };
 		973F803419C7867F00AC61CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973F803319C7867F00AC61CE /* AppDelegate.swift */; };
 		973F803619C7867F00AC61CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973F803519C7867F00AC61CE /* ViewController.swift */; };
 		973F803919C7867F00AC61CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 973F803719C7867F00AC61CE /* Main.storyboard */; };
 		973F803B19C7867F00AC61CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 973F803A19C7867F00AC61CE /* Images.xcassets */; };
 		973F803E19C7867F00AC61CE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 973F803C19C7867F00AC61CE /* LaunchScreen.xib */; };
-		973F804A19C7867F00AC61CE /* StormyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973F804919C7867F00AC61CE /* StormyTests.swift */; };
 		97C92D6519C87DF7001C7229 /* Current.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C92D6419C87DF7001C7229 /* Current.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +57,14 @@
 			remoteGlobalIDString = 2E3013E91D228FCC007082AF;
 			remoteInfo = StormyWatch;
 		};
-		973F804419C7867F00AC61CE /* PBXContainerItemProxy */ = {
+		2E36462D1E8AD5DA00C0151A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 973F802619C7867F00AC61CE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E3646211E8AD5DA00C0151A;
+			remoteInfo = "Stormy Today";
+		};
+		2E8D99301E85BC0100D0BB91 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 973F802619C7867F00AC61CE /* Project object */;
 			proxyType = 1;
@@ -80,6 +96,17 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2E3646331E8AD5DA00C0151A /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2E36462F1E8AD5DA00C0151A /* Stormy Today.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -95,12 +122,22 @@
 		2E3014031D228FCC007082AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E3014051D228FCC007082AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E3014121D229472007082AF /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		2E3646221E8AD5DA00C0151A /* Stormy Today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Stormy Today.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E3646241E8AD5DA00C0151A /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		2E3646271E8AD5DA00C0151A /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		2E36462A1E8AD5DA00C0151A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		2E36462C1E8AD5DA00C0151A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E3646371E8AE1C000C0151A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		2E86681D1D14861300FE044F /* StormyTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StormyTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E86681F1D14861300FE044F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E8668241D14861400FE044F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainTV.storyboard; sourceTree = "<group>"; };
 		2E8668261D14861400FE044F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E8668281D14861400FE044F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E86682E1D1489FB00FE044F /* ViewControllerTV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerTV.swift; sourceTree = "<group>"; };
+		2E8D992B1E85BC0100D0BB91 /* StormyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StormyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E8D992D1E85BC0100D0BB91 /* StormyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StormyTests.swift; sourceTree = "<group>"; };
+		2E8D992F1E85BC0100D0BB91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E8D993B1E85C27F00D0BB91 /* mockData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mockData.json; sourceTree = "<group>"; };
 		973F802E19C7867F00AC61CE /* Stormy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stormy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		973F803219C7867F00AC61CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		973F803319C7867F00AC61CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Stormy/AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,7 +145,6 @@
 		973F803819C7867F00AC61CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		973F803A19C7867F00AC61CE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		973F803D19C7867F00AC61CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		973F804319C7867F00AC61CE /* StormyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StormyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		973F804819C7867F00AC61CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		973F804919C7867F00AC61CE /* StormyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StormyTests.swift; sourceTree = "<group>"; };
 		97C92D6419C87DF7001C7229 /* Current.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Current.swift; sourceTree = "<group>"; };
@@ -122,6 +158,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2E36461F1E8AD5DA00C0151A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E3646251E8AD5DA00C0151A /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2E86681A1D14861300FE044F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -129,14 +173,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		973F802B19C7867F00AC61CE /* Frameworks */ = {
+		2E8D99281E85BC0100D0BB91 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		973F804019C7867F00AC61CE /* Frameworks */ = {
+		973F802B19C7867F00AC61CE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -177,6 +221,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2E3646231E8AD5DA00C0151A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2E3646241E8AD5DA00C0151A /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2E3646261E8AD5DA00C0151A /* Stormy Today */ = {
+			isa = PBXGroup;
+			children = (
+				2E3646271E8AD5DA00C0151A /* TodayViewController.swift */,
+				2E3646291E8AD5DA00C0151A /* MainInterface.storyboard */,
+				2E36462C1E8AD5DA00C0151A /* Info.plist */,
+			);
+			path = "Stormy Today";
+			sourceTree = "<group>";
+		};
 		2E86681E1D14861300FE044F /* StormyTV */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +249,15 @@
 				2E86682E1D1489FB00FE044F /* ViewControllerTV.swift */,
 			);
 			path = StormyTV;
+			sourceTree = "<group>";
+		};
+		2E8D992C1E85BC0100D0BB91 /* StormyTests */ = {
+			isa = PBXGroup;
+			children = (
+				2E8D992D1E85BC0100D0BB91 /* StormyTests.swift */,
+				2E8D992F1E85BC0100D0BB91 /* Info.plist */,
+			);
+			path = StormyTests;
 			sourceTree = "<group>";
 		};
 		2EF6B89F1D19BDAB00E47A7D /* Model */ = {
@@ -209,12 +280,16 @@
 		973F802519C7867F00AC61CE = {
 			isa = PBXGroup;
 			children = (
+				2E3646371E8AE1C000C0151A /* Default-568h@2x.png */,
 				973F803319C7867F00AC61CE /* AppDelegate.swift */,
 				973F803019C7867F00AC61CE /* Stormy */,
 				973F804619C7867F00AC61CE /* StormyTests */,
 				2E86681E1D14861300FE044F /* StormyTV */,
 				2E3013EB1D228FCC007082AF /* StormyWatch */,
 				2E3013FA1D228FCC007082AF /* StormyWatch Extension */,
+				2E8D992C1E85BC0100D0BB91 /* StormyTests */,
+				2E3646261E8AD5DA00C0151A /* Stormy Today */,
+				2E3646231E8AD5DA00C0151A /* Frameworks */,
 				973F802F19C7867F00AC61CE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -223,10 +298,11 @@
 			isa = PBXGroup;
 			children = (
 				973F802E19C7867F00AC61CE /* Stormy.app */,
-				973F804319C7867F00AC61CE /* StormyTests.xctest */,
 				2E86681D1D14861300FE044F /* StormyTV.app */,
 				2E3013EA1D228FCC007082AF /* StormyWatch.app */,
 				2E3013F61D228FCC007082AF /* StormyWatch Extension.appex */,
+				2E8D992B1E85BC0100D0BB91 /* StormyTests.xctest */,
+				2E3646221E8AD5DA00C0151A /* Stormy Today.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -255,6 +331,7 @@
 		973F804619C7867F00AC61CE /* StormyTests */ = {
 			isa = PBXGroup;
 			children = (
+				2E8D993B1E85C27F00D0BB91 /* mockData.json */,
 				973F804919C7867F00AC61CE /* StormyTests.swift */,
 				973F804719C7867F00AC61CE /* Supporting Files */,
 			);
@@ -306,6 +383,23 @@
 			productReference = 2E3013F61D228FCC007082AF /* StormyWatch Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
+		2E3646211E8AD5DA00C0151A /* Stormy Today */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E3646321E8AD5DA00C0151A /* Build configuration list for PBXNativeTarget "Stormy Today" */;
+			buildPhases = (
+				2E36461E1E8AD5DA00C0151A /* Sources */,
+				2E36461F1E8AD5DA00C0151A /* Frameworks */,
+				2E3646201E8AD5DA00C0151A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Stormy Today";
+			productName = "Stormy Today";
+			productReference = 2E3646221E8AD5DA00C0151A /* Stormy Today.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		2E86681C1D14861300FE044F /* StormyTV */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2E8668291D14861400FE044F /* Build configuration list for PBXNativeTarget "StormyTV" */;
@@ -323,6 +417,24 @@
 			productReference = 2E86681D1D14861300FE044F /* StormyTV.app */;
 			productType = "com.apple.product-type.application";
 		};
+		2E8D992A1E85BC0100D0BB91 /* StormyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E8D99341E85BC0100D0BB91 /* Build configuration list for PBXNativeTarget "StormyTests" */;
+			buildPhases = (
+				2E8D99271E85BC0100D0BB91 /* Sources */,
+				2E8D99281E85BC0100D0BB91 /* Frameworks */,
+				2E8D99291E85BC0100D0BB91 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2E8D99311E85BC0100D0BB91 /* PBXTargetDependency */,
+			);
+			name = StormyTests;
+			productName = StormyTests;
+			productReference = 2E8D992B1E85BC0100D0BB91 /* StormyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		973F802D19C7867F00AC61CE /* Stormy */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 973F804D19C7867F00AC61CE /* Build configuration list for PBXNativeTarget "Stormy" */;
@@ -331,34 +443,18 @@
 				973F802B19C7867F00AC61CE /* Frameworks */,
 				973F802C19C7867F00AC61CE /* Resources */,
 				2E3014101D228FCC007082AF /* Embed Watch Content */,
+				2E3646331E8AD5DA00C0151A /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				2E3014071D228FCC007082AF /* PBXTargetDependency */,
+				2E36462E1E8AD5DA00C0151A /* PBXTargetDependency */,
 			);
 			name = Stormy;
 			productName = Stormy;
 			productReference = 973F802E19C7867F00AC61CE /* Stormy.app */;
 			productType = "com.apple.product-type.application";
-		};
-		973F804219C7867F00AC61CE /* StormyTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 973F805019C7867F00AC61CE /* Build configuration list for PBXNativeTarget "StormyTests" */;
-			buildPhases = (
-				973F803F19C7867F00AC61CE /* Sources */,
-				973F804019C7867F00AC61CE /* Frameworks */,
-				973F804119C7867F00AC61CE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				973F804519C7867F00AC61CE /* PBXTargetDependency */,
-			);
-			name = StormyTests;
-			productName = StormyTests;
-			productReference = 973F804319C7867F00AC61CE /* StormyTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -366,28 +462,39 @@
 		973F802619C7867F00AC61CE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0700;
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = DRL;
 				TargetAttributes = {
 					2E3013E91D228FCC007082AF = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = MVFU2L7FRK;
+						LastSwiftMigration = 0800;
 					};
 					2E3013F51D228FCC007082AF = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = MVFU2L7FRK;
+						LastSwiftMigration = 0800;
+					};
+					2E3646211E8AD5DA00C0151A = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = MVFU2L7FRK;
+						ProvisioningStyle = Automatic;
 					};
 					2E86681C1D14861300FE044F = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = MVFU2L7FRK;
+					};
+					2E8D992A1E85BC0100D0BB91 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = MVFU2L7FRK;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 973F802D19C7867F00AC61CE;
 					};
 					973F802D19C7867F00AC61CE = {
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = MVFU2L7FRK;
-					};
-					973F804219C7867F00AC61CE = {
-						CreatedOnToolsVersion = 6.0;
-						TestTargetID = 973F802D19C7867F00AC61CE;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -405,10 +512,11 @@
 			projectRoot = "";
 			targets = (
 				973F802D19C7867F00AC61CE /* Stormy */,
-				973F804219C7867F00AC61CE /* StormyTests */,
 				2E86681C1D14861300FE044F /* StormyTV */,
 				2E3013E91D228FCC007082AF /* StormyWatch */,
 				2E3013F51D228FCC007082AF /* StormyWatch Extension */,
+				2E8D992A1E85BC0100D0BB91 /* StormyTests */,
+				2E3646211E8AD5DA00C0151A /* Stormy Today */,
 			);
 		};
 /* End PBXProject section */
@@ -431,6 +539,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2E3646201E8AD5DA00C0151A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E36462B1E8AD5DA00C0151A /* MainInterface.storyboard in Resources */,
+				2E3646361E8ADBE500C0151A /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2E86681B1D14861300FE044F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -440,20 +557,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2E8D99291E85BC0100D0BB91 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E8D993C1E85C27F00D0BB91 /* mockData.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		973F802C19C7867F00AC61CE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				973F803919C7867F00AC61CE /* Main.storyboard in Resources */,
+				2E3646381E8AE1C000C0151A /* Default-568h@2x.png in Resources */,
 				973F803E19C7867F00AC61CE /* LaunchScreen.xib in Resources */,
 				973F803B19C7867F00AC61CE /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		973F804119C7867F00AC61CE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +591,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2E36461E1E8AD5DA00C0151A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E3646281E8AD5DA00C0151A /* TodayViewController.swift in Sources */,
+				2E3646351E8AD80800C0151A /* Image.swift in Sources */,
+				2E3646341E8AD80600C0151A /* Current.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2E8668191D14861300FE044F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -483,6 +612,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2E8D99271E85BC0100D0BB91 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E8D992E1E85BC0100D0BB91 /* StormyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		973F802A19C7867F00AC61CE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -491,14 +628,6 @@
 				2E3014131D229472007082AF /* Image.swift in Sources */,
 				973F803619C7867F00AC61CE /* ViewController.swift in Sources */,
 				973F803419C7867F00AC61CE /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		973F803F19C7867F00AC61CE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				973F804A19C7867F00AC61CE /* StormyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,10 +644,15 @@
 			target = 2E3013E91D228FCC007082AF /* StormyWatch */;
 			targetProxy = 2E3014061D228FCC007082AF /* PBXContainerItemProxy */;
 		};
-		973F804519C7867F00AC61CE /* PBXTargetDependency */ = {
+		2E36462E1E8AD5DA00C0151A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2E3646211E8AD5DA00C0151A /* Stormy Today */;
+			targetProxy = 2E36462D1E8AD5DA00C0151A /* PBXContainerItemProxy */;
+		};
+		2E8D99311E85BC0100D0BB91 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 973F802D19C7867F00AC61CE /* Stormy */;
-			targetProxy = 973F804419C7867F00AC61CE /* PBXContainerItemProxy */;
+			targetProxy = 2E8D99301E85BC0100D0BB91 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -529,6 +663,14 @@
 				2E3013ED1D228FCC007082AF /* Base */,
 			);
 			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+		2E3646291E8AD5DA00C0151A /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2E36462A1E8AD5DA00C0151A /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 		2E8668231D14861400FE044F /* MainTV.storyboard */ = {
@@ -561,11 +703,11 @@
 		2E3014091D228FCC007082AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				IBSC_MODULE = StormyWatch_Extension;
 				INFOPLIST_FILE = StormyWatch/Info.plist;
@@ -573,20 +715,21 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
 			};
 			name = Debug;
 		};
 		2E30140A1D228FCC007082AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				IBSC_MODULE = StormyWatch_Extension;
 				INFOPLIST_FILE = StormyWatch/Info.plist;
@@ -594,8 +737,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
 			};
 			name = Release;
 		};
@@ -612,8 +756,9 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
 			};
 			name = Debug;
 		};
@@ -631,8 +776,49 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Release;
+		};
+		2E3646301E8AD5DA00C0151A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = MVFU2L7FRK;
+				INFOPLIST_FILE = "Stormy Today/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.teamtreehouse.Stormy.Stormy-Today";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		2E3646311E8AD5DA00C0151A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = MVFU2L7FRK;
+				INFOPLIST_FILE = "Stormy Today/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.teamtreehouse.Stormy.Stormy-Today";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -643,6 +829,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ANALYZER_NONNULL = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = MVFU2L7FRK;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = StormyTV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -650,7 +837,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.2;
+				TVOS_DEPLOYMENT_TARGET = 10.2;
 			};
 			name = Debug;
 		};
@@ -662,6 +849,7 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = MVFU2L7FRK;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = StormyTV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -669,7 +857,45 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.2;
+				TVOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Release;
+		};
+		2E8D99321E85BC0100D0BB91 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = MVFU2L7FRK;
+				INFOPLIST_FILE = StormyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.durul.StormyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stormy.app/Stormy";
+			};
+			name = Debug;
+		};
+		2E8D99331E85BC0100D0BB91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = MVFU2L7FRK;
+				INFOPLIST_FILE = StormyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.durul.StormyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stormy.app/Stormy";
 			};
 			name = Release;
 		};
@@ -686,8 +912,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -696,6 +924,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -708,7 +937,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -729,8 +958,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -738,15 +969,17 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -754,62 +987,30 @@
 		973F804E19C7867F00AC61CE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Stormy/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.teamtreehouse.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		973F804F19C7867F00AC61CE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Stormy/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.teamtreehouse.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		973F805119C7867F00AC61CE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = StormyTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.teamtreehouse.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stormy.app/Stormy";
-			};
-			name = Debug;
-		};
-		973F805219C7867F00AC61CE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = StormyTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.teamtreehouse.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stormy.app/Stormy";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -823,6 +1024,7 @@
 				2E30140C1D228FCC007082AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2E30140F1D228FCC007082AF /* Build configuration list for PBXNativeTarget "StormyWatch" */ = {
 			isa = XCConfigurationList;
@@ -831,12 +1033,31 @@
 				2E30140A1D228FCC007082AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2E3646321E8AD5DA00C0151A /* Build configuration list for PBXNativeTarget "Stormy Today" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E3646301E8AD5DA00C0151A /* Debug */,
+				2E3646311E8AD5DA00C0151A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2E8668291D14861400FE044F /* Build configuration list for PBXNativeTarget "StormyTV" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2E86682A1D14861400FE044F /* Debug */,
 				2E86682B1D14861400FE044F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2E8D99341E85BC0100D0BB91 /* Build configuration list for PBXNativeTarget "StormyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E8D99321E85BC0100D0BB91 /* Debug */,
+				2E8D99331E85BC0100D0BB91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -855,15 +1076,6 @@
 			buildConfigurations = (
 				973F804E19C7867F00AC61CE /* Debug */,
 				973F804F19C7867F00AC61CE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		973F805019C7867F00AC61CE /* Build configuration list for PBXNativeTarget "StormyTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				973F805119C7867F00AC61CE /* Debug */,
-				973F805219C7867F00AC61CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

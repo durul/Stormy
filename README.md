@@ -1,37 +1,36 @@
-# Stormy iOS9, watchOS, tvOS
--------------------------------------------------
+# Stormy iOS10, watchOS, tvOS
+---- 
 - This application that uses Forecast's API to provide weather data at your location at any time. The application is written Swift and utilizes the CoreLocation framework.
 - This application also have watchOS and tvOS supports.
 - Used custom response serializers to process the JSON into an array of Swift objects
 - Parsed some string fields in the web service JSON with NSJSONSerialization
 - Parsing JSON including arrays, strings to arrays and strings to dates (with NSDateFormatter)
+- UITapGestureRecognizer
+- Today Extension
 
 ## Requirements
--------------------------------------------------
-Xcode 7.3.1
+---- 
+Xcode 8
 
-Swift 2.2
+Swift 3.1
 
-Deployment Target = iOS 9.3
+Deployment Target = iOS 10
 
 Base SDK = iOS 9.3
 
 ## Asset Credits
--------------------------------------------------
+Portfolio: http://durul.github.io
 
-Paw: https://luckymarmot.com/paw
 
-Linkedin: http://www.linkedin.com/pub/durul-dalkanat/58/48a/b2a
-
+## Support
 Twitter: https://www.twitter.com/duruldalkanat
 
-Blog: http://dumobility.tumblr.com/
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2016 Durul Dalkanat
+Copyright (c) 2017 Durul Dalkanat
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -45,4 +44,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 Like Stormy ? Get us a coffee ;-)
 
-[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://paypal.me/DurulDalkanat)
+[![Donate][image-1]][1]
+
+[1]:	https://paypal.me/DurulDalkanat
+
+[image-1]:	https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif

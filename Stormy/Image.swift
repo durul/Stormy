@@ -1,10 +1,6 @@
 //
 //  Image.swift
 //  Stormy
-//
-//  Created by durul dalkanat on 6/28/16.
-//  Copyright © 2016 DRL. All rights reserved.
-//
 
 import Foundation
 import UIKit
@@ -20,7 +16,7 @@ struct CurrentImage {
     }
 }
 
-func weatherIconFromString(stringIcon: String) -> UIImage? {
+func weatherIconFromString(_ stringIcon: String) -> UIImage? {
     var imageName: String
     
     switch stringIcon {

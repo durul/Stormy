@@ -11,8 +11,8 @@ import Foundation
 
 class InterfaceController: WKInterfaceController {
 	
-	override func awakeWithContext(context: AnyObject?) {
-		super.awakeWithContext(context)
+	override func awake(withContext context: Any?) {
+		super.awake(withContext: context)
     
 	}
 	
@@ -33,35 +33,35 @@ class InterfaceController: WKInterfaceController {
 	}
 	
 	// Replace the string below with your API Key.
-	private let APIKey = "bec6820ba3d3baeddbae393d2a240e73"
+	fileprivate let APIKey = "bec6820ba3d3baeddbae393d2a240e73"
 	
 	func getCurrentWeatherData() -> Void {
 		
-		guard let baseURL = NSURL(string: "https://api.forecast.io/forecast/\(APIKey)/") else {
+		guard let baseURL = URL(string: "https://api.forecast.io/forecast/\(APIKey)/") else {
 			print("Error: cannot create URL")
 			return
 		}
 		
-		guard let forecastURL = NSURL(string: "37.8267,-122.423", relativeToURL: baseURL) else {
+		guard let forecastURL = URL(string: "37.8267,-122.423", relativeTo: baseURL) else {
 			print("Error: cannot create URL")
 			return
 		}
 		
 		let unwrappedForecastURL = forecastURL
 		
-		let sharedSession = NSURLSession.sharedSession()
-		let downloadTask: NSURLSessionDownloadTask = sharedSession.downloadTaskWithURL(unwrappedForecastURL, completionHandler: { (location: NSURL?, response: NSURLResponse?, error: NSError?) -> Void in
+		let sharedSession = URLSession.shared
+		let downloadTask: URLSessionDownloadTask = sharedSession.downloadTask(with: unwrappedForecastURL, completionHandler: { (location: URL?, response: URLResponse?, error: NSError?) -> Void in
 			
 			if (error == nil) {
-				let dataObject = NSData(contentsOfURL: location!)
+				let dataObject = try? Data(contentsOf: location!)
 				
 				do {
-					let weatherDictionary = try NSJSONSerialization.JSONObjectWithData(dataObject!, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary
+					let weatherDictionary = try JSONSerialization.jsonObject(with: dataObject!, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
 					
 					let currentWeather = Current(weatherDictionary: weatherDictionary!)
                     let currentImage = CurrentImage(weatherDictionary: weatherDictionary!)
 
-					dispatch_async(dispatch_get_main_queue(), { () -> Void in
+					DispatchQueue.main.async(execute: { () -> Void in
 						self.temperatureLabel.setText("\(currentWeather.temperature)")
                         self.summaryLabel.setText("\(currentWeather.summary)")
                         self.iconView.setImage(currentImage.icon)
@@ -73,7 +73,7 @@ class InterfaceController: WKInterfaceController {
 				}
 			}
 			
-		})
+		} as! (URL?, URLResponse?, Error?) -> Void)
 		
 		downloadTask.resume()
 	}

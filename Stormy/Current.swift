@@ -32,14 +32,14 @@ struct Current {
 
 	}
 	
-	func dateStringFromUnixTime(unixTime: Int) -> String {
-		let timeInSeconds = NSTimeInterval(unixTime)
-		let weatherDate = NSDate(timeIntervalSince1970: timeInSeconds)
+	func dateStringFromUnixTime(_ unixTime: Int) -> String {
+		let timeInSeconds = TimeInterval(unixTime)
+		let weatherDate = Date(timeIntervalSince1970: timeInSeconds)
 		
-		let dateFormatter = NSDateFormatter()
-		dateFormatter.timeStyle = .ShortStyle
+		let dateFormatter = DateFormatter()
+		dateFormatter.timeStyle = .short
 		
-		return dateFormatter.stringFromDate(weatherDate)
+		return dateFormatter.string(from: weatherDate)
 	}
 	
 }
