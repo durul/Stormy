@@ -140,6 +140,8 @@
 		2E36462C1E8AD5DA00C0151A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E3646371E8AE1C000C0151A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		2E76CDB51EAE29A400587548 /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		2E76CDB81EAE38E700587548 /* Stormy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Stormy.entitlements; sourceTree = "<group>"; };
+		2E76CDB91EAE390300587548 /* Stormy Today.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Stormy Today.entitlements"; sourceTree = "<group>"; };
 		2E86681D1D14861300FE044F /* StormyTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StormyTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E86681F1D14861300FE044F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E8668241D14861400FE044F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainTV.storyboard; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 		2E3646261E8AD5DA00C0151A /* Stormy Today */ = {
 			isa = PBXGroup;
 			children = (
+				2E76CDB91EAE390300587548 /* Stormy Today.entitlements */,
 				2E3646271E8AD5DA00C0151A /* TodayViewController.swift */,
 				2E3646291E8AD5DA00C0151A /* MainInterface.storyboard */,
 				2E36462C1E8AD5DA00C0151A /* Info.plist */,
@@ -368,6 +371,7 @@
 		973F803019C7867F00AC61CE /* Stormy */ = {
 			isa = PBXGroup;
 			children = (
+				2E76CDB81EAE38E700587548 /* Stormy.entitlements */,
 				2EF6B89F1D19BDAB00E47A7D /* Model */,
 				2E76CDB41EAE299100587548 /* View */,
 				2EF6B8A01D19BDB200E47A7D /* Controller */,
@@ -538,6 +542,11 @@
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = MVFU2L7FRK;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					2E86681C1D14861300FE044F = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -554,6 +563,11 @@
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = MVFU2L7FRK;
 						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -772,7 +786,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				IBSC_MODULE = StormyWatch_Extension;
 				INFOPLIST_FILE = StormyWatch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.teamtreehouse.Stormy.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.durul.Stormy.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -794,7 +808,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				IBSC_MODULE = StormyWatch_Extension;
 				INFOPLIST_FILE = StormyWatch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.teamtreehouse.Stormy.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.durul.Stormy.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -813,7 +827,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "StormyWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.teamtreehouse.Stormy.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.durul.Stormy.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -833,7 +847,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "StormyWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.teamtreehouse.Stormy.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.durul.Stormy.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -849,13 +863,14 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_ENTITLEMENTS = "Stormy Today/Stormy Today.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = MVFU2L7FRK;
 				INFOPLIST_FILE = "Stormy Today/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.teamtreehouse.Stormy.Stormy-Today";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.durul.Stormy.Stormy-Today";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -869,6 +884,7 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_ENTITLEMENTS = "Stormy Today/Stormy Today.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -876,7 +892,7 @@
 				INFOPLIST_FILE = "Stormy Today/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.teamtreehouse.Stormy.Stormy-Today";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.durul.Stormy.Stormy-Today";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -1052,6 +1068,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Stormy/Stormy.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1060,7 +1077,7 @@
 				INFOPLIST_FILE = Stormy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.teamtreehouse.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.durul.Stormy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
@@ -1072,6 +1089,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Stormy/Stormy.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1080,7 +1098,7 @@
 				INFOPLIST_FILE = Stormy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.teamtreehouse.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.durul.Stormy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

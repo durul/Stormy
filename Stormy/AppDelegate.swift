@@ -17,8 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         BuddyBuildSDK.setup()
         
         // Override point for customization after application launch.
-        application.setStatusBarHidden(true, with: .none)
         return true
     }
-
 }

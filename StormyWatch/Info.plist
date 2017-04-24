@@ -28,7 +28,7 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>WKCompanionAppBundleIdentifier</key>
-	<string>com.teamtreehouse.Stormy</string>
+	<string>com.durul.Stormy</string>
 	<key>WKWatchKitApp</key>
 	<true/>
 </dict>
