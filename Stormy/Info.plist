@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
     <dict>
+        <key>NSSiriUsageDescription</key>
+        <string>Stormy uses Siri.</string>
         <key>UIApplicationShortcutWidget</key>
         <string>com.durul.Stormy.Stormy-Today</string>
         <key>NSAppTransportSecurity</key>

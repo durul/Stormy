@@ -2,6 +2,7 @@
 //  Stormy
 
 import UIKit
+import Intents
 
     //MARK: - UIViewController Properties
 class ViewController: UIViewController {
@@ -29,7 +30,8 @@ class ViewController: UIViewController {
         refreshActivityIndicator.isHidden = true
         
         getCurrentWeatherData()
-        
+        siriAuthorizing()
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -93,8 +95,7 @@ class ViewController: UIViewController {
         let sharedSession = URLSession(configuration: config)
         
         // Sending request to the server.
-        let downloadTask: URLSessionDownloadTask = sharedSession.downloadTask(with: forecastURL, completionHandler: {
-            (location, response, error) -> Void in
+        let downloadTask: URLSessionDownloadTask = sharedSession.downloadTask(with: forecastURL, completionHandler: { (location, response, error) -> Void in
             
             if (error == nil) {
                 let dataObject = try? Data(contentsOf: location!)
@@ -105,8 +106,7 @@ class ViewController: UIViewController {
                     
                     let currentWeather = Current(weatherDictionary: weatherDictionary! as NSDictionary)
                     let currentImage = CurrentImage(weatherDictionary: weatherDictionary! as NSDictionary)
-                    
-                    
+        
                     DispatchQueue.main.async(execute: { () -> Void in
                         self.temperatureLabel.text = "\(currentWeather.temperature)"
                         self.iconView.image = currentImage.icon!
@@ -119,7 +119,6 @@ class ViewController: UIViewController {
                         self.refreshActivityIndicator.stopAnimating()
                         self.refreshActivityIndicator.isHidden = true
                         self.refreshButton.isHidden = false
-                        
                         
                     })
                     
@@ -150,6 +149,24 @@ class ViewController: UIViewController {
         })
         
         downloadTask.resume()
+    }
+    
+    func siriAuthorizing() {
+        if #available(iOS 10.0, *) {
+            INPreferences.requestSiriAuthorization { (status:INSiriAuthorizationStatus) in
+                switch (status) {
+                case INSiriAuthorizationStatus.authorized :
+                    print("siri is authorized")
+                    break
+                default :
+                    print("siri is not authorized")
+                }
+            }
+        } else {
+            // Fallback on earlier versions
+            
+        }
+
     }
     
     //MARK: - IBActions

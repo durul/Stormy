@@ -28,6 +28,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         temperatureLbl.addGestureRecognizer(tapGesture)
     }
     
+    // Create custom app URLs
     func doLaunchApp() {
         if let url = URL(string: "Stormy://") {
             self.extensionContext?.open(url, completionHandler: nil)

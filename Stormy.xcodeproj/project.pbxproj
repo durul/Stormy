@@ -21,6 +21,12 @@
 		2E3014141D2294C3007082AF /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3014121D229472007082AF /* Image.swift */; };
 		2E3014151D2294DD007082AF /* Current.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C92D6419C87DF7001C7229 /* Current.swift */; };
 		2E3014161D22A977007082AF /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3014121D229472007082AF /* Image.swift */; };
+		2E30456F1EAE4C26005A287D /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E30456E1EAE4C26005A287D /* IntentHandler.swift */; };
+		2E3045771EAE4C26005A287D /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3045761EAE4C26005A287D /* IntentsUI.framework */; };
+		2E30457A1EAE4C26005A287D /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3045791EAE4C26005A287D /* IntentViewController.swift */; };
+		2E30457D1EAE4C26005A287D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E30457B1EAE4C26005A287D /* MainInterface.storyboard */; };
+		2E3045811EAE4C26005A287D /* StormyIntentUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2E3045751EAE4C26005A287D /* StormyIntentUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2E3045841EAE4C26005A287D /* StormyIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2E30456C1EAE4C25005A287D /* StormyIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2E3646251E8AD5DA00C0151A /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3646241E8AD5DA00C0151A /* NotificationCenter.framework */; };
 		2E3646281E8AD5DA00C0151A /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3646271E8AD5DA00C0151A /* TodayViewController.swift */; };
 		2E36462B1E8AD5DA00C0151A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E3646291E8AD5DA00C0151A /* MainInterface.storyboard */; };
@@ -68,6 +74,20 @@
 			remoteGlobalIDString = 2E3013E91D228FCC007082AF;
 			remoteInfo = StormyWatch;
 		};
+		2E30457F1EAE4C26005A287D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 973F802619C7867F00AC61CE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E3045741EAE4C26005A287D;
+			remoteInfo = StormyIntentUI;
+		};
+		2E3045821EAE4C26005A287D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 973F802619C7867F00AC61CE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E30456B1EAE4C25005A287D;
+			remoteInfo = StormyIntent;
+		};
 		2E36462D1E8AD5DA00C0151A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 973F802619C7867F00AC61CE /* Project object */;
@@ -113,6 +133,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				2E3045841EAE4C26005A287D /* StormyIntent.appex in Embed App Extensions */,
+				2E3045811EAE4C26005A287D /* StormyIntentUI.appex in Embed App Extensions */,
 				2E36462F1E8AD5DA00C0151A /* Stormy Today.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -133,6 +155,14 @@
 		2E3014031D228FCC007082AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E3014051D228FCC007082AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E3014121D229472007082AF /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		2E30456C1EAE4C25005A287D /* StormyIntent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = StormyIntent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E30456E1EAE4C26005A287D /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		2E3045701EAE4C26005A287D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E3045751EAE4C26005A287D /* StormyIntentUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = StormyIntentUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E3045761EAE4C26005A287D /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		2E3045791EAE4C26005A287D /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
+		2E30457C1EAE4C26005A287D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		2E30457E1EAE4C26005A287D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E3646221E8AD5DA00C0151A /* Stormy Today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Stormy Today.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E3646241E8AD5DA00C0151A /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		2E3646271E8AD5DA00C0151A /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +209,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E3045691EAE4C25005A287D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E3045721EAE4C26005A287D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E3045771EAE4C26005A287D /* IntentsUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +306,25 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2E30456D1EAE4C26005A287D /* StormyIntent */ = {
+			isa = PBXGroup;
+			children = (
+				2E30456E1EAE4C26005A287D /* IntentHandler.swift */,
+				2E3045701EAE4C26005A287D /* Info.plist */,
+			);
+			path = StormyIntent;
+			sourceTree = "<group>";
+		};
+		2E3045781EAE4C26005A287D /* StormyIntentUI */ = {
+			isa = PBXGroup;
+			children = (
+				2E3045791EAE4C26005A287D /* IntentViewController.swift */,
+				2E30457B1EAE4C26005A287D /* MainInterface.storyboard */,
+				2E30457E1EAE4C26005A287D /* Info.plist */,
+			);
+			path = StormyIntentUI;
+			sourceTree = "<group>";
+		};
 		2E3646231E8AD5DA00C0151A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +338,7 @@
 				A961150812E7449ADE8D6EAE /* AVFoundation.framework */,
 				C419F6016F5038DFE85B6648 /* CoreMedia.framework */,
 				C551BDAE776314766A6F8449 /* CoreVideo.framework */,
+				2E3045761EAE4C26005A287D /* IntentsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -349,6 +414,8 @@
 				2E3013FA1D228FCC007082AF /* StormyWatch Extension */,
 				2E8D992C1E85BC0100D0BB91 /* StormyTests */,
 				2E3646261E8AD5DA00C0151A /* Stormy Today */,
+				2E30456D1EAE4C26005A287D /* StormyIntent */,
+				2E3045781EAE4C26005A287D /* StormyIntentUI */,
 				2E3646231E8AD5DA00C0151A /* Frameworks */,
 				973F802F19C7867F00AC61CE /* Products */,
 				6C620DE83A1C35DB0CFF590F /* Bridging-Header.h */,
@@ -364,6 +431,8 @@
 				2E3013F61D228FCC007082AF /* StormyWatch Extension.appex */,
 				2E8D992B1E85BC0100D0BB91 /* StormyTests.xctest */,
 				2E3646221E8AD5DA00C0151A /* Stormy Today.appex */,
+				2E30456C1EAE4C25005A287D /* StormyIntent.appex */,
+				2E3045751EAE4C26005A287D /* StormyIntentUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -445,6 +514,40 @@
 			productReference = 2E3013F61D228FCC007082AF /* StormyWatch Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
+		2E30456B1EAE4C25005A287D /* StormyIntent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E3045881EAE4C26005A287D /* Build configuration list for PBXNativeTarget "StormyIntent" */;
+			buildPhases = (
+				2E3045681EAE4C25005A287D /* Sources */,
+				2E3045691EAE4C25005A287D /* Frameworks */,
+				2E30456A1EAE4C25005A287D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StormyIntent;
+			productName = StormyIntent;
+			productReference = 2E30456C1EAE4C25005A287D /* StormyIntent.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		2E3045741EAE4C26005A287D /* StormyIntentUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E3045851EAE4C26005A287D /* Build configuration list for PBXNativeTarget "StormyIntentUI" */;
+			buildPhases = (
+				2E3045711EAE4C26005A287D /* Sources */,
+				2E3045721EAE4C26005A287D /* Frameworks */,
+				2E3045731EAE4C26005A287D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StormyIntentUI;
+			productName = StormyIntentUI;
+			productReference = 2E3045751EAE4C26005A287D /* StormyIntentUI.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		2E3646211E8AD5DA00C0151A /* Stormy Today */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2E3646321E8AD5DA00C0151A /* Build configuration list for PBXNativeTarget "Stormy Today" */;
@@ -512,6 +615,8 @@
 			dependencies = (
 				2E3014071D228FCC007082AF /* PBXTargetDependency */,
 				2E36462E1E8AD5DA00C0151A /* PBXTargetDependency */,
+				2E3045801EAE4C26005A287D /* PBXTargetDependency */,
+				2E3045831EAE4C26005A287D /* PBXTargetDependency */,
 			);
 			name = Stormy;
 			productName = Stormy;
@@ -537,6 +642,16 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = MVFU2L7FRK;
 						LastSwiftMigration = 0800;
+					};
+					2E30456B1EAE4C25005A287D = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = MVFU2L7FRK;
+						ProvisioningStyle = Automatic;
+					};
+					2E3045741EAE4C26005A287D = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = MVFU2L7FRK;
+						ProvisioningStyle = Automatic;
 					};
 					2E3646211E8AD5DA00C0151A = {
 						CreatedOnToolsVersion = 8.3;
@@ -567,6 +682,9 @@
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
+							com.apple.Siri = {
+								enabled = 1;
+							};
 						};
 					};
 				};
@@ -590,6 +708,8 @@
 				2E3013F51D228FCC007082AF /* StormyWatch Extension */,
 				2E8D992A1E85BC0100D0BB91 /* StormyTests */,
 				2E3646211E8AD5DA00C0151A /* Stormy Today */,
+				2E30456B1EAE4C25005A287D /* StormyIntent */,
+				2E3045741EAE4C26005A287D /* StormyIntentUI */,
 			);
 		};
 /* End PBXProject section */
@@ -609,6 +729,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E3014041D228FCC007082AF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E30456A1EAE4C25005A287D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E3045731EAE4C26005A287D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E30457D1EAE4C26005A287D /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,6 +796,22 @@
 				2E3013FE1D228FCC007082AF /* InterfaceController.swift in Sources */,
 				2E3014151D2294DD007082AF /* Current.swift in Sources */,
 				2E3014161D22A977007082AF /* Image.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E3045681EAE4C25005A287D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E30456F1EAE4C26005A287D /* IntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E3045711EAE4C26005A287D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E30457A1EAE4C26005A287D /* IntentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -719,6 +870,16 @@
 			target = 2E3013E91D228FCC007082AF /* StormyWatch */;
 			targetProxy = 2E3014061D228FCC007082AF /* PBXContainerItemProxy */;
 		};
+		2E3045801EAE4C26005A287D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2E3045741EAE4C26005A287D /* StormyIntentUI */;
+			targetProxy = 2E30457F1EAE4C26005A287D /* PBXContainerItemProxy */;
+		};
+		2E3045831EAE4C26005A287D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2E30456B1EAE4C25005A287D /* StormyIntent */;
+			targetProxy = 2E3045821EAE4C26005A287D /* PBXContainerItemProxy */;
+		};
 		2E36462E1E8AD5DA00C0151A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2E3646211E8AD5DA00C0151A /* Stormy Today */;
@@ -738,6 +899,14 @@
 				2E3013ED1D228FCC007082AF /* Base */,
 			);
 			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+		2E30457B1EAE4C26005A287D /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2E30457C1EAE4C26005A287D /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 		2E3646291E8AD5DA00C0151A /* MainInterface.storyboard */ = {
@@ -854,6 +1023,82 @@
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Release;
+		};
+		2E3045861EAE4C26005A287D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = MVFU2L7FRK;
+				INFOPLIST_FILE = StormyIntentUI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.durul.Stormy.StormyIntentUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		2E3045871EAE4C26005A287D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = MVFU2L7FRK;
+				INFOPLIST_FILE = StormyIntentUI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.durul.Stormy.StormyIntentUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		2E3045891EAE4C26005A287D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = MVFU2L7FRK;
+				INFOPLIST_FILE = StormyIntent/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.durul.Stormy.StormyIntent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		2E30458A1EAE4C26005A287D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = MVFU2L7FRK;
+				INFOPLIST_FILE = StormyIntent/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.durul.Stormy.StormyIntent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1125,6 +1370,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		2E3045851EAE4C26005A287D /* Build configuration list for PBXNativeTarget "StormyIntentUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E3045861EAE4C26005A287D /* Debug */,
+				2E3045871EAE4C26005A287D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2E3045881EAE4C26005A287D /* Build configuration list for PBXNativeTarget "StormyIntent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E3045891EAE4C26005A287D /* Debug */,
+				2E30458A1EAE4C26005A287D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		2E3646321E8AD5DA00C0151A /* Build configuration list for PBXNativeTarget "Stormy Today" */ = {
 			isa = XCConfigurationList;
