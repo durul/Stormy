@@ -11,6 +11,8 @@
 - Parsing JSON including arrays, strings to arrays and strings to dates (with NSDateFormatter)
 - UITapGestureRecognizer
 - Today Extension
+- Core Animation
+- Custom background view
 
 ## Requirements
 Xcode 8
