@@ -27,6 +27,8 @@
 		2E30457D1EAE4C26005A287D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E30457B1EAE4C26005A287D /* MainInterface.storyboard */; };
 		2E3045811EAE4C26005A287D /* StormyIntentUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2E3045751EAE4C26005A287D /* StormyIntentUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2E3045841EAE4C26005A287D /* StormyIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2E30456C1EAE4C25005A287D /* StormyIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2E30458D1EAE6C4C005A287D /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E30458C1EAE6C4C005A287D /* Reachability.swift */; };
+		2E30458F1EAE6CF5005A287D /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E30458E1EAE6CF5005A287D /* ServiceError.swift */; };
 		2E3646251E8AD5DA00C0151A /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3646241E8AD5DA00C0151A /* NotificationCenter.framework */; };
 		2E3646281E8AD5DA00C0151A /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3646271E8AD5DA00C0151A /* TodayViewController.swift */; };
 		2E36462B1E8AD5DA00C0151A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E3646291E8AD5DA00C0151A /* MainInterface.storyboard */; };
@@ -163,6 +165,8 @@
 		2E3045791EAE4C26005A287D /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
 		2E30457C1EAE4C26005A287D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		2E30457E1EAE4C26005A287D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E30458C1EAE6C4C005A287D /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		2E30458E1EAE6CF5005A287D /* ServiceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		2E3646221E8AD5DA00C0151A /* Stormy Today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Stormy Today.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E3646241E8AD5DA00C0151A /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		2E3646271E8AD5DA00C0151A /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -325,6 +329,15 @@
 			path = StormyIntentUI;
 			sourceTree = "<group>";
 		};
+		2E30458B1EAE6776005A287D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				2E30458E1EAE6CF5005A287D /* ServiceError.swift */,
+				2E30458C1EAE6C4C005A287D /* Reachability.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
 		2E3646231E8AD5DA00C0151A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -440,6 +453,7 @@
 		973F803019C7867F00AC61CE /* Stormy */ = {
 			isa = PBXGroup;
 			children = (
+				2E30458B1EAE6776005A287D /* Networking */,
 				2E76CDB81EAE38E700587548 /* Stormy.entitlements */,
 				2EF6B89F1D19BDAB00E47A7D /* Model */,
 				2E76CDB41EAE299100587548 /* View */,
@@ -851,8 +865,10 @@
 			files = (
 				2E76CDB61EAE29A400587548 /* BackgroundView.swift in Sources */,
 				97C92D6519C87DF7001C7229 /* Current.swift in Sources */,
+				2E30458D1EAE6C4C005A287D /* Reachability.swift in Sources */,
 				2E3014131D229472007082AF /* Image.swift in Sources */,
 				973F803619C7867F00AC61CE /* ViewController.swift in Sources */,
+				2E30458F1EAE6CF5005A287D /* ServiceError.swift in Sources */,
 				973F803419C7867F00AC61CE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1378,6 +1394,7 @@
 				2E3045871EAE4C26005A287D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2E3045881EAE4C26005A287D /* Build configuration list for PBXNativeTarget "StormyIntent" */ = {
 			isa = XCConfigurationList;
@@ -1386,6 +1403,7 @@
 				2E30458A1EAE4C26005A287D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2E3646321E8AD5DA00C0151A /* Build configuration list for PBXNativeTarget "Stormy Today" */ = {
 			isa = XCConfigurationList;

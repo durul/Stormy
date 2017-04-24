@@ -30,7 +30,11 @@ class ViewController: UIViewController {
         refreshActivityIndicator.isHidden = true
         
         getCurrentWeatherData()
-        siriAuthorizing()
+        if #available(iOS 10.0, *) {
+            siriAuthorizing()
+        } else {
+            // Fallback on earlier versions
+        }
     
     }
     
@@ -97,8 +101,16 @@ class ViewController: UIViewController {
         // Sending request to the server.
         let downloadTask: URLSessionDownloadTask = sharedSession.downloadTask(with: forecastURL, completionHandler: { (location, response, error) -> Void in
             
-            if (error == nil) {
+            // Checking internet connection availability
+            if Reachability.isConnectedToNetwork() {
+
                 let dataObject = try? Data(contentsOf: location!)
+                
+                if let httpResponse = response as? HTTPURLResponse, (200..<300) ~= httpResponse.statusCode {
+                    print(httpResponse)
+                } else {
+                    print(ServiceError.other)
+                }
                 
                 // Parsing incoming data
                 do {
@@ -122,6 +134,7 @@ class ViewController: UIViewController {
                         
                     })
                     
+                    
                 } catch let error as NSError {
                     print(error)
                 }
@@ -137,7 +150,9 @@ class ViewController: UIViewController {
                 let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
                 networkIssueController.addAction(cancelButton)
                 
-                self.present(networkIssueController, animated: true, completion: nil)
+                self.present(networkIssueController, animated: true, completion: { () in
+                    print("Done🔨", ServiceError.noInternetConnection)
+                })
                 
                 DispatchQueue.main.async(execute: { () -> Void in
                     // Stop refresh animation
@@ -145,26 +160,33 @@ class ViewController: UIViewController {
                     self.refreshActivityIndicator.isHidden = true
                     self.refreshButton.isHidden = false
                 })
+                
             }
         })
         
         downloadTask.resume()
     }
     
+    @available(iOS 10.0, *)
     func siriAuthorizing() {
-        if #available(iOS 10.0, *) {
-            INPreferences.requestSiriAuthorization { (status:INSiriAuthorizationStatus) in
-                switch (status) {
-                case INSiriAuthorizationStatus.authorized :
-                    print("siri is authorized")
-                    break
-                default :
-                    print("siri is not authorized")
-                }
+        INPreferences.requestSiriAuthorization {
+            switch $0 {
+            case .authorized:
+                print("authorized")
+                break
+                
+            case .notDetermined:
+                print("notDetermined")
+                break
+                
+            case .restricted:
+                print("restricted")
+                break
+                
+            case .denied:
+                print("denied")
+                break
             }
-        } else {
-            // Fallback on earlier versions
-            
         }
 
     }
