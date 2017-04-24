@@ -1,18 +1,16 @@
 //
 //  ViewControllerTV.swift
-//  Stormy
-//
-//  Created by durul dalkanat on 6/17/16.
-//  Copyright © 2016 DRL. All rights reserved.
-//
 
 import UIKit
 
+    //MARK: - UIViewController Properties
 class ViewControllerTV: UIViewController {
 	
-	// Replace the string below with your API Key.
-	private let APIKey = "bec6820ba3d3baeddbae393d2a240e73"
+    //MARK: - Private Properties
+    // Replace the string below with your API Key.
+	fileprivate let APIKey = "bec6820ba3d3baeddbae393d2a240e73"
 	
+    //MARK: - IBOutlets
 	@IBOutlet weak var iconView: UIImageView!
 	@IBOutlet weak var currentTimeLabel: UILabel!
 	@IBOutlet weak var temperatureLabel: UILabel!
@@ -22,41 +20,84 @@ class ViewControllerTV: UIViewController {
 	@IBOutlet weak var refreshButton: UIButton!
 	@IBOutlet weak var refreshActivityIndicator: UIActivityIndicatorView!
 	
+    //MARK: - Super Methods
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		refreshActivityIndicator.hidden = true
+		refreshActivityIndicator.isHidden = true
 		
 		getCurrentWeatherData()
 	}
 	
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        currentTimeLabel.center.x  -= view.bounds.width
+        summaryLabel.center.x -= view.bounds.width
+        temperatureLabel.center.x -= view.bounds.width
+        
+        summaryLabel.alpha = 0.0
+        currentTimeLabel.alpha = 0.0
+        temperatureLabel.alpha = 0.0
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.currentTimeLabel.center.x += self.view.bounds.width
+        })
+        
+        UIView.animate(withDuration: 0.5, delay: 0.3, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.0, options: [], animations: {
+            self.summaryLabel.center.x += self.view.bounds.width
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 0.5, delay: 0.4, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.0, options: [], animations: {
+            self.temperatureLabel.center.x += self.view.bounds.width
+        }, completion: nil)
+        
+        
+        UIView.animate(withDuration: 0.5, delay: 0.3, options: [], animations: {
+            self.summaryLabel.alpha = 1.0
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 0.5, delay: 0.4, options: [], animations: {
+            self.currentTimeLabel.alpha = 1.0
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 0.5, delay: 0.5, options: [], animations: {
+            self.temperatureLabel.alpha = 1.0
+        }, completion: nil)
+        
+    }
+    
 	func getCurrentWeatherData() -> Void {
 		
-		guard let baseURL = NSURL(string: "https://api.forecast.io/forecast/\(APIKey)/") else {
+		guard let baseURL = URL(string: "https://api.forecast.io/forecast/\(APIKey)/") else {
 			print("Error: cannot create URL")
 			return
 		}
 		
-		guard let forecastURL = NSURL(string: "37.8267,-122.423", relativeToURL: baseURL) else {
+		guard let forecastURL = URL(string: "37.8267,-122.423", relativeTo: baseURL) else {
 			print("Error: cannot create URL")
 			return
 		}
 		
 		let unwrappedForecastURL = forecastURL
 		
-		let sharedSession = NSURLSession.sharedSession()
-		let downloadTask: NSURLSessionDownloadTask = sharedSession.downloadTaskWithURL(unwrappedForecastURL, completionHandler: { (location: NSURL?, response: NSURLResponse?, error: NSError?) -> Void in
+		let sharedSession = URLSession.shared
+		let downloadTask: URLSessionDownloadTask = sharedSession.downloadTask(with: unwrappedForecastURL, completionHandler: { (location, response, error) -> Void in
 			
 			if (error == nil) {
-				let dataObject = NSData(contentsOfURL: location!)
+				let dataObject = try? Data(contentsOf: location!)
 				
 				do {
-					let weatherDictionary = try NSJSONSerialization.JSONObjectWithData(dataObject!, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary
+					let weatherDictionary = try JSONSerialization.jsonObject(with: dataObject!, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
 					
 					let currentWeather = Current(weatherDictionary: weatherDictionary!)
                     let currentImage = CurrentImage(weatherDictionary: weatherDictionary!)
 
-					dispatch_async(dispatch_get_main_queue(), { () -> Void in
+					DispatchQueue.main.async(execute: { () -> Void in
 						self.temperatureLabel.text = "\(currentWeather.temperature)"
 						self.iconView.image = currentImage.icon!
 						self.currentTimeLabel.text = "At \(currentWeather.currentTime!) it is"
@@ -66,26 +107,26 @@ class ViewControllerTV: UIViewController {
 //
 //                        //Stop refresh animation
 						self.refreshActivityIndicator.stopAnimating()
-						self.refreshActivityIndicator.hidden = true
-						self.refreshButton.hidden = false
+						self.refreshActivityIndicator.isHidden = true
+						self.refreshButton.isHidden = false
 					})
 					
 				} catch let error as NSError {
-					let networkIssueController = UIAlertController(title: "Error", message: "Unable to load data. Connectivity error!", preferredStyle: .Alert)
+					let networkIssueController = UIAlertController(title: "Error", message: "Unable to load data. Connectivity error!", preferredStyle: .alert)
 					
-					let okButton = UIAlertAction(title: "OK", style: .Default, handler: nil)
+					let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
 					networkIssueController.addAction(okButton)
 					
-					let cancelButton = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+					let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
 					networkIssueController.addAction(cancelButton)
 					
-					self.presentViewController(networkIssueController, animated: true, completion: nil)
+					self.present(networkIssueController, animated: true, completion: nil)
 					
-					dispatch_async(dispatch_get_main_queue(), { () -> Void in
+					DispatchQueue.main.async(execute: { () -> Void in
 						// Stop refresh animation
 						self.refreshActivityIndicator.stopAnimating()
-						self.refreshActivityIndicator.hidden = true
-						self.refreshButton.hidden = false
+						self.refreshActivityIndicator.isHidden = true
+						self.refreshButton.isHidden = false
 					})
 					print(error)
 				}
@@ -96,11 +137,12 @@ class ViewControllerTV: UIViewController {
 		downloadTask.resume()
 	}
 	
+    //MARK: - IBActions
 	@IBAction func refresh() {
 		getCurrentWeatherData()
 		
-		refreshButton.hidden = true
-		refreshActivityIndicator.hidden = false
+		refreshButton.isHidden = true
+		refreshActivityIndicator.isHidden = false
 		refreshActivityIndicator.startAnimating()
 	}
 	

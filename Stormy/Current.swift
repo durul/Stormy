@@ -9,6 +9,7 @@ import UIKit
 
 struct Current {
 	
+    //MARK: - Properties
 	var currentTime: String?
 	var temperature: Int
 	var humidity: Int

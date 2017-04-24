@@ -29,6 +29,8 @@
 		2E3646351E8AD80800C0151A /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3014121D229472007082AF /* Image.swift */; };
 		2E3646361E8ADBE500C0151A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 973F803A19C7867F00AC61CE /* Images.xcassets */; };
 		2E3646381E8AE1C000C0151A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E3646371E8AE1C000C0151A /* Default-568h@2x.png */; };
+		2E76CDB61EAE29A400587548 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E76CDB51EAE29A400587548 /* BackgroundView.swift */; };
+		2E76CDB71EAE2D1F00587548 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E76CDB51EAE29A400587548 /* BackgroundView.swift */; };
 		2E8668201D14861300FE044F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E86681F1D14861300FE044F /* AppDelegate.swift */; };
 		2E8668251D14861400FE044F /* MainTV.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E8668231D14861400FE044F /* MainTV.storyboard */; };
 		2E8668271D14861400FE044F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E8668261D14861400FE044F /* Assets.xcassets */; };
@@ -137,6 +139,7 @@
 		2E36462A1E8AD5DA00C0151A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		2E36462C1E8AD5DA00C0151A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E3646371E8AE1C000C0151A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		2E76CDB51EAE29A400587548 /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		2E86681D1D14861300FE044F /* StormyTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StormyTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E86681F1D14861300FE044F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E8668241D14861400FE044F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainTV.storyboard; sourceTree = "<group>"; };
@@ -163,7 +166,7 @@
 		97C92D6419C87DF7001C7229 /* Current.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Current.swift; sourceTree = "<group>"; };
 		A961150812E7449ADE8D6EAE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A9CDFC3435E4C50B82C14735 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		C1EA4FFF18C290C2181E87A9 /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BuddyBuildSDK.framework; path = BuddyBuildSDK.framework; sourceTree = "<group>"; };
+		C1EA4FFF18C290C2181E87A9 /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BuddyBuildSDK.framework; sourceTree = "<group>"; };
 		C419F6016F5038DFE85B6648 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		C551BDAE776314766A6F8449 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		E52BFE10C41CD6AAC53A596C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -283,6 +286,16 @@
 			path = "Stormy Today";
 			sourceTree = "<group>";
 		};
+		2E76CDB41EAE299100587548 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				973F803719C7867F00AC61CE /* Main.storyboard */,
+				973F803C19C7867F00AC61CE /* LaunchScreen.xib */,
+				2E76CDB51EAE29A400587548 /* BackgroundView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		2E86681E1D14861300FE044F /* StormyTV */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,11 +368,10 @@
 		973F803019C7867F00AC61CE /* Stormy */ = {
 			isa = PBXGroup;
 			children = (
-				2EF6B8A01D19BDB200E47A7D /* Controller */,
 				2EF6B89F1D19BDAB00E47A7D /* Model */,
-				973F803719C7867F00AC61CE /* Main.storyboard */,
+				2E76CDB41EAE299100587548 /* View */,
+				2EF6B8A01D19BDB200E47A7D /* Controller */,
 				973F803A19C7867F00AC61CE /* Images.xcassets */,
-				973F803C19C7867F00AC61CE /* LaunchScreen.xib */,
 				973F803119C7867F00AC61CE /* Supporting Files */,
 			);
 			path = Stormy;
@@ -530,6 +542,7 @@
 					2E86681C1D14861300FE044F = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = MVFU2L7FRK;
+						LastSwiftMigration = 0830;
 					};
 					2E8D992A1E85BC0100D0BB91 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -651,6 +664,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E76CDB71EAE2D1F00587548 /* BackgroundView.swift in Sources */,
 				2E8668301D148A8500FE044F /* Current.swift in Sources */,
 				2E3014141D2294C3007082AF /* Image.swift in Sources */,
 				2E86682F1D1489FB00FE044F /* ViewControllerTV.swift in Sources */,
@@ -670,6 +684,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E76CDB61EAE29A400587548 /* BackgroundView.swift in Sources */,
 				97C92D6519C87DF7001C7229 /* Current.swift in Sources */,
 				2E3014131D229472007082AF /* Image.swift in Sources */,
 				973F803619C7867F00AC61CE /* ViewController.swift in Sources */,
@@ -882,6 +897,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.durul.StormyTV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 10.2;
 			};
@@ -902,6 +918,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.durul.StormyTV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 10.2;
 			};
