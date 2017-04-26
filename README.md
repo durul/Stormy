@@ -3,7 +3,7 @@
 # Stormy
 
 
-[![BuddyBuild](https://dashboard.buddybuild.com/api/statusImage?appID=58b67d22d21c470100b0c394&branch=master&build=latest)](https://dashboard.buddybuild.com/apps/58fc126ba76e8b0001389e0e/build/58fc12a1c1cd220001947b7f/build/latest?branch=master) ![Platform](https://img.shields.io/badge/Platforms-iOS%20%7c%20%7c%20tvOS%20%7c%20watchOS%20%7c%20-lightgray.svg?style=flat)
+[![BuddyBuild](https://dashboard.buddybuild.com/api/statusImage?appID=58b67d22d21c470100b0c394&branch=master&build=latest)](https://dashboard.buddybuild.com/apps/58fc126ba76e8b0001389e0e/build/58fc12a1c1cd220001947b7f/build/latest?branch=master) ![Platform](https://img.shields.io/badge/Platforms-iOS%20%7c%20tvOS%20%7c%20watchOS%20%7c%20-lightgray.svg?style=flat)
 
 ---- 
 - This application that uses Forecast's API to provide weather data at your location at any time. The application is written Swift and utilizes the CoreLocation framework.
