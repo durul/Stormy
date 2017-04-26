@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12120" systemVersion="16F67a" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="10032"/>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="12029"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
@@ -13,8 +17,8 @@
                         <imageView height="93" alignment="center" contentMode="scaleAspectFit" animationDuration="3" id="Pok-wM-S6E"/>
                         <group width="1" alignment="center" verticalAlignment="center" id="fUd-AE-7as">
                             <items>
-                                <label width="66.5" height="44.5" alignment="left" verticalAlignment="bottom" text="Refreshing" textAlignment="right" id="l29-Ac-WiK"/>
-                                <imageView width="23" height="0.5" alignment="left" verticalAlignment="center" semanticContentAttribute="forceRightToLeft" image="degree" contentMode="scaleAspectFit" id="Jr7-on-LOj"/>
+                                <label width="74" height="44.5" alignment="left" verticalAlignment="bottom" text="Refreshing" textAlignment="right" minimumScaleFactor="0.5" id="l29-Ac-WiK"/>
+                                <imageView width="23" height="0.5" alignment="center" verticalAlignment="center" semanticContentAttribute="forceLeftToRight" image="degree" contentMode="scaleAspectFit" id="Jr7-on-LOj"/>
                             </items>
                         </group>
                         <group width="1" height="28.5" alignment="center" verticalAlignment="center" id="1VY-8v-dOY">

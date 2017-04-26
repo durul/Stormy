@@ -50,7 +50,7 @@ class InterfaceController: WKInterfaceController {
 		let unwrappedForecastURL = forecastURL
 		
 		let sharedSession = URLSession.shared
-		let downloadTask: URLSessionDownloadTask = sharedSession.downloadTask(with: unwrappedForecastURL, completionHandler: { (location: URL?, response: URLResponse?, error: NSError?) -> Void in
+		let downloadTask: URLSessionDownloadTask = sharedSession.downloadTask(with: unwrappedForecastURL, completionHandler: { (location, response, error) -> Void in
 			
 			if (error == nil) {
 				let dataObject = try? Data(contentsOf: location!)
@@ -73,10 +73,11 @@ class InterfaceController: WKInterfaceController {
 				}
 			}
 			
-		} as! (URL?, URLResponse?, Error?) -> Void)
+		})
 		
 		downloadTask.resume()
 	}
 	
+    
 }
 
