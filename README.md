@@ -15,6 +15,8 @@
 - Today Extension
 - Core Animation
 - Custom background view
+- SiriKit
+- 3D touch
 
 ## Requirements
 Xcode 8

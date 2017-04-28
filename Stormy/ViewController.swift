@@ -35,7 +35,6 @@ class ViewController: UIViewController {
         } else {
             // Fallback on earlier versions
         }
-    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -89,12 +88,12 @@ class ViewController: UIViewController {
             print("Error: cannot create URL")
             return
         }
-        
+
         guard let forecastURL = URL(string: "37.8267,-122.423", relativeTo: baseURL) else {
             print("Error: cannot create URL")
             return
         }
-        
+            
         let config = URLSessionConfiguration.default
         let sharedSession = URLSession(configuration: config)
         
