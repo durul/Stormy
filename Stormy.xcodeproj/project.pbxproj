@@ -43,6 +43,7 @@
 		2E6BA4911EBCB52100AD1DEA /* TemperatureLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6BA4901EBCB52100AD1DEA /* TemperatureLabel.swift */; };
 		2E6BA4931EBCB53F00AD1DEA /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6BA4921EBCB53F00AD1DEA /* AppFonts.swift */; };
 		2E6BA4941EBCB53F00AD1DEA /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6BA4921EBCB53F00AD1DEA /* AppFonts.swift */; };
+		2E6BA4951EBCB85000AD1DEA /* TemperatureLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6BA4901EBCB52100AD1DEA /* TemperatureLabel.swift */; };
 		2E76CDB61EAE29A400587548 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E76CDB51EAE29A400587548 /* BackgroundView.swift */; };
 		2E76CDB71EAE2D1F00587548 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E76CDB51EAE29A400587548 /* BackgroundView.swift */; };
 		2E8668201D14861300FE044F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E86681F1D14861300FE044F /* AppDelegate.swift */; };
@@ -886,6 +887,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E6BA4951EBCB85000AD1DEA /* TemperatureLabel.swift in Sources */,
 				2E6BA4941EBCB53F00AD1DEA /* AppFonts.swift in Sources */,
 				2E76CDB71EAE2D1F00587548 /* BackgroundView.swift in Sources */,
 				2E8668301D148A8500FE044F /* Current.swift in Sources */,
