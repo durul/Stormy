@@ -40,6 +40,9 @@
 		2E5629311EB3AA260072056F /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5629301EB3AA260072056F /* Coordinate.swift */; };
 		2E5629331EB3AE8D0072056F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E5629321EB3AE8D0072056F /* CoreLocation.framework */; };
 		2E5A36581EB3A08D00AE9D51 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E5A36571EB3A08D00AE9D51 /* MapKit.framework */; };
+		2E6BA4911EBCB52100AD1DEA /* TemperatureLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6BA4901EBCB52100AD1DEA /* TemperatureLabel.swift */; };
+		2E6BA4931EBCB53F00AD1DEA /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6BA4921EBCB53F00AD1DEA /* AppFonts.swift */; };
+		2E6BA4941EBCB53F00AD1DEA /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6BA4921EBCB53F00AD1DEA /* AppFonts.swift */; };
 		2E76CDB61EAE29A400587548 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E76CDB51EAE29A400587548 /* BackgroundView.swift */; };
 		2E76CDB71EAE2D1F00587548 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E76CDB51EAE29A400587548 /* BackgroundView.swift */; };
 		2E8668201D14861300FE044F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E86681F1D14861300FE044F /* AppDelegate.swift */; };
@@ -179,6 +182,8 @@
 		2E5629301EB3AA260072056F /* Coordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		2E5629321EB3AE8D0072056F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2E5A36571EB3A08D00AE9D51 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		2E6BA4901EBCB52100AD1DEA /* TemperatureLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureLabel.swift; sourceTree = "<group>"; };
+		2E6BA4921EBCB53F00AD1DEA /* AppFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
 		2E76CDB51EAE29A400587548 /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		2E76CDB81EAE38E700587548 /* Stormy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Stormy.entitlements; sourceTree = "<group>"; };
 		2E76CDB91EAE390300587548 /* Stormy Today.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Stormy Today.entitlements"; sourceTree = "<group>"; };
@@ -383,9 +388,11 @@
 		2E76CDB41EAE299100587548 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2E6BA4901EBCB52100AD1DEA /* TemperatureLabel.swift */,
+				2E6BA4921EBCB53F00AD1DEA /* AppFonts.swift */,
+				2E76CDB51EAE29A400587548 /* BackgroundView.swift */,
 				973F803719C7867F00AC61CE /* Main.storyboard */,
 				973F803C19C7867F00AC61CE /* LaunchScreen.xib */,
-				2E76CDB51EAE29A400587548 /* BackgroundView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -879,6 +886,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E6BA4941EBCB53F00AD1DEA /* AppFonts.swift in Sources */,
 				2E76CDB71EAE2D1F00587548 /* BackgroundView.swift in Sources */,
 				2E8668301D148A8500FE044F /* Current.swift in Sources */,
 				2E3014141D2294C3007082AF /* Image.swift in Sources */,
@@ -905,7 +913,9 @@
 				2E3014131D229472007082AF /* Image.swift in Sources */,
 				2E5629311EB3AA260072056F /* Coordinate.swift in Sources */,
 				973F803619C7867F00AC61CE /* ViewController.swift in Sources */,
+				2E6BA4931EBCB53F00AD1DEA /* AppFonts.swift in Sources */,
 				2E30458F1EAE6CF5005A287D /* ServiceError.swift in Sources */,
+				2E6BA4911EBCB52100AD1DEA /* TemperatureLabel.swift in Sources */,
 				973F803419C7867F00AC61CE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
