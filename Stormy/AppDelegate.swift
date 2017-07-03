@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Intents
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         BuddyBuildSDK.setup()
         
-        // Override point for customization after application launch.
+        return true
+    }
+
+    // Handling App Launch from Siri
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+        if #available(iOS 10.0, *) {
+            guard let intent = userActivity.interaction?.intent as? INStartWorkoutIntent else {
+                return false
+            }
+            print(intent)
+        } else {
+            // Fallback on earlier versions
+        }
         return true
     }
 }

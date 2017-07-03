@@ -117,7 +117,8 @@ class ViewController: UIViewController {
                     
                     let currentWeather = Current(weatherDictionary: weatherDictionary! as NSDictionary)
                     let currentImage = CurrentImage(weatherDictionary: weatherDictionary! as NSDictionary)
-        
+
+// We’re doing the loading off the main thread, and then coming back onto the main thread to update the UI.        
                     DispatchQueue.main.async(execute: { () -> Void in
                         self.temperatureLabel.text = "\(currentWeather.temperature)"
                         self.iconView.image = currentImage.icon!
