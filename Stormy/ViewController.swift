@@ -29,13 +29,43 @@ class ViewController: UIViewController {
         
         refreshActivityIndicator.isHidden = true
         
-        getCurrentWeatherData()
         if #available(iOS 10.0, *) {
             siriAuthorizing()
         } else {
             // Fallback on earlier versions
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(didChangePowerMode), name: NSNotification.Name.NSProcessInfoPowerStateDidChange, object: nil)
+        
+        getCurrentWeatherData()
     }
+    
+    func didChangePowerMode(notification: NSNotification) {
+        if ProcessInfo.processInfo.isLowPowerModeEnabled {
+            refreshActivityIndicator.isHidden = true
+            refreshButton.isHidden = true
+
+            // low power mode on
+            let alertController = UIAlertController(title: "Low power mode ON", message: "You can't get current information data", preferredStyle:UIAlertControllerStyle.alert)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+                print("you have pressed the Cancel button");
+            }
+            alertController.addAction(cancelAction)
+            
+            let OKAction = UIAlertAction(title: "OK", style: .default) { _ in
+                print("you have pressed OK button");
+            }
+            alertController.addAction(OKAction)
+            
+            self.present(alertController, animated: true, completion:{ () -> Void in
+                //your code here
+            })
+        } else {
+            getCurrentWeatherData()
+        }
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -188,7 +218,6 @@ class ViewController: UIViewController {
                 break
             }
         }
-
     }
     
     //MARK: - IBActions
