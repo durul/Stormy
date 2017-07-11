@@ -31,7 +31,19 @@ class InterfaceController: WKInterfaceController {
 		// This method is called when watch view controller is no longer visible
 		super.didDeactivate()
 	}
-	
+
+    func connection(_ connection: NSURLConnection!, didFailWithError error: NSError!){
+        print("Error: \(error)")
+    }
+
+    func connection(_ connection: NSURLConnection!, didReceiveResponse response: URLResponse!){
+        print("Received response: \(response)")
+    }
+
+    func connection(_ connection: NSURLConnection!, didReceiveData data:Data!){
+        print("Received data: \(data)")
+    }
+
 	// Replace the string below with your API Key.
 	fileprivate let APIKey = "bec6820ba3d3baeddbae393d2a240e73"
 	
