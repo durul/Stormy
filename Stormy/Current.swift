@@ -7,6 +7,13 @@
 import Foundation
 import UIKit
 
+// conform to the equitable protocol, and provide an implementation for double equals.
+extension Current: Equatable {
+    static func ==(lhs: Current, rhs: Current) -> Bool {
+        return lhs.currentTime == rhs.currentTime && lhs.temperature == rhs.temperature && lhs.humidity == rhs.humidity && lhs.precipProbability == rhs.precipProbability && lhs.summary == rhs.summary
+    }
+}
+
 struct Current {
 	
     //MARK: - Properties
@@ -15,7 +22,8 @@ struct Current {
 	var humidity: Int
 	var precipProbability: Int
 	var summary: String
-	
+
+    //MARK: Initialization
 	init(weatherDictionary: NSDictionary) {
 		let currentWeather = weatherDictionary["currently"] as! NSDictionary
 		

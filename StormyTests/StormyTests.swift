@@ -83,6 +83,4 @@ class StormyTests: XCTestCase {
         XCTAssertNil(responseError)
         XCTAssertEqual(statusCode, 200)
     }
-
-    
 }

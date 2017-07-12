@@ -37,7 +37,6 @@
 		2E3646351E8AD80800C0151A /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3014121D229472007082AF /* Image.swift */; };
 		2E3646361E8ADBE500C0151A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 973F803A19C7867F00AC61CE /* Images.xcassets */; };
 		2E3646381E8AE1C000C0151A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E3646371E8AE1C000C0151A /* Default-568h@2x.png */; };
-		2E5629311EB3AA260072056F /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5629301EB3AA260072056F /* Coordinate.swift */; };
 		2E5629331EB3AE8D0072056F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E5629321EB3AE8D0072056F /* CoreLocation.framework */; };
 		2E5A36581EB3A08D00AE9D51 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E5A36571EB3A08D00AE9D51 /* MapKit.framework */; };
 		2E6BA4911EBCB52100AD1DEA /* TemperatureLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6BA4901EBCB52100AD1DEA /* TemperatureLabel.swift */; };
@@ -180,7 +179,6 @@
 		2E36462A1E8AD5DA00C0151A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		2E36462C1E8AD5DA00C0151A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E3646371E8AE1C000C0151A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		2E5629301EB3AA260072056F /* Coordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		2E5629321EB3AE8D0072056F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2E5A36571EB3A08D00AE9D51 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2E6BA4901EBCB52100AD1DEA /* TemperatureLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureLabel.swift; sourceTree = "<group>"; };
@@ -432,7 +430,6 @@
 		2EF6B89F1D19BDAB00E47A7D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2E5629301EB3AA260072056F /* Coordinate.swift */,
 				97C92D6419C87DF7001C7229 /* Current.swift */,
 				2E3014121D229472007082AF /* Image.swift */,
 			);
@@ -913,7 +910,6 @@
 				97C92D6519C87DF7001C7229 /* Current.swift in Sources */,
 				2E30458D1EAE6C4C005A287D /* Reachability.swift in Sources */,
 				2E3014131D229472007082AF /* Image.swift in Sources */,
-				2E5629311EB3AA260072056F /* Coordinate.swift in Sources */,
 				973F803619C7867F00AC61CE /* ViewController.swift in Sources */,
 				2E6BA4931EBCB53F00AD1DEA /* AppFonts.swift in Sources */,
 				2E30458F1EAE6CF5005A287D /* ServiceError.swift in Sources */,

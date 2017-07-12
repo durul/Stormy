@@ -32,7 +32,5 @@ class BackgroundView: UIView {
         context?.drawLinearGradient(purpleGradient!,
             start: CGPoint(x: 160, y: 0),
             end: CGPoint(x: 160, y: 568), options: options)
-        
     }
-
 }
