@@ -52,6 +52,15 @@
 		2E8668301D148A8500FE044F /* Current.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C92D6419C87DF7001C7229 /* Current.swift */; };
 		2E8D992E1E85BC0100D0BB91 /* StormyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8D992D1E85BC0100D0BB91 /* StormyTests.swift */; };
 		2E8D993C1E85C27F00D0BB91 /* mockData.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E8D993B1E85C27F00D0BB91 /* mockData.json */; };
+		2EC611B41F27D32F009241DA /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC611B21F27D32F009241DA /* Coordinate.swift */; };
+		2EC611B51F27D32F009241DA /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC611B31F27D32F009241DA /* LocationManager.swift */; };
+		2EC611B61F27DA6E009241DA /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC611B21F27D32F009241DA /* Coordinate.swift */; };
+		2EC611B71F27DA71009241DA /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC611B21F27D32F009241DA /* Coordinate.swift */; };
+		2EC611B81F27DA7E009241DA /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC611B31F27D32F009241DA /* LocationManager.swift */; };
+		2EC611B91F27DA7F009241DA /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC611B31F27D32F009241DA /* LocationManager.swift */; };
+		2EC611BA1F27DA8D009241DA /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E30458C1EAE6C4C005A287D /* Reachability.swift */; };
+		2EC611BB1F27DA9A009241DA /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E30458E1EAE6CF5005A287D /* ServiceError.swift */; };
+		2EC611BC1F27DA9A009241DA /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E30458E1EAE6CF5005A287D /* ServiceError.swift */; };
 		3915E84FBCB57B0204766D33 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A5B63DAB0532F478B04DD5 /* CoreTelephony.framework */; };
 		4B830C243ABCC6A26627F797 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47E3CC963737A0EA8FAFBA60 /* CoreText.framework */; };
 		693B9CF8563310A91D6362B9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A961150812E7449ADE8D6EAE /* AVFoundation.framework */; };
@@ -199,6 +208,8 @@
 		2E9796DB1EBBF2A70073EE93 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		2E9796DC1EBBF2B00073EE93 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		2E9796DD1EBBF2BB0073EE93 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		2EC611B21F27D32F009241DA /* Coordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
+		2EC611B31F27D32F009241DA /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		47E3CC963737A0EA8FAFBA60 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		6985F18C1A522A4FF5DCC178 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6C620DE83A1C35DB0CFF590F /* Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
@@ -432,6 +443,8 @@
 			children = (
 				97C92D6419C87DF7001C7229 /* Current.swift */,
 				2E3014121D229472007082AF /* Image.swift */,
+				2EC611B21F27D32F009241DA /* Coordinate.swift */,
+				2EC611B31F27D32F009241DA /* LocationManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -846,11 +859,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EC611BC1F27DA9A009241DA /* ServiceError.swift in Sources */,
 				2E3014021D228FCC007082AF /* NotificationController.swift in Sources */,
 				2E3014001D228FCC007082AF /* ExtensionDelegate.swift in Sources */,
 				2E3013FE1D228FCC007082AF /* InterfaceController.swift in Sources */,
+				2EC611B91F27DA7F009241DA /* LocationManager.swift in Sources */,
 				2E3014151D2294DD007082AF /* Current.swift in Sources */,
 				2E3014161D22A977007082AF /* Image.swift in Sources */,
+				2EC611B71F27DA71009241DA /* Coordinate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -887,10 +903,14 @@
 				2E6BA4951EBCB85000AD1DEA /* TemperatureLabel.swift in Sources */,
 				2E6BA4941EBCB53F00AD1DEA /* AppFonts.swift in Sources */,
 				2E76CDB71EAE2D1F00587548 /* BackgroundView.swift in Sources */,
+				2EC611B61F27DA6E009241DA /* Coordinate.swift in Sources */,
 				2E8668301D148A8500FE044F /* Current.swift in Sources */,
 				2E3014141D2294C3007082AF /* Image.swift in Sources */,
 				2E86682F1D1489FB00FE044F /* ViewControllerTV.swift in Sources */,
+				2EC611BB1F27DA9A009241DA /* ServiceError.swift in Sources */,
 				2E8668201D14861300FE044F /* AppDelegate.swift in Sources */,
+				2EC611BA1F27DA8D009241DA /* Reachability.swift in Sources */,
+				2EC611B81F27DA7E009241DA /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -909,12 +929,14 @@
 				2E76CDB61EAE29A400587548 /* BackgroundView.swift in Sources */,
 				97C92D6519C87DF7001C7229 /* Current.swift in Sources */,
 				2E30458D1EAE6C4C005A287D /* Reachability.swift in Sources */,
+				2EC611B51F27D32F009241DA /* LocationManager.swift in Sources */,
 				2E3014131D229472007082AF /* Image.swift in Sources */,
 				973F803619C7867F00AC61CE /* ViewController.swift in Sources */,
 				2E6BA4931EBCB53F00AD1DEA /* AppFonts.swift in Sources */,
 				2E30458F1EAE6CF5005A287D /* ServiceError.swift in Sources */,
 				2E6BA4911EBCB52100AD1DEA /* TemperatureLabel.swift in Sources */,
 				973F803419C7867F00AC61CE /* AppDelegate.swift in Sources */,
+				2EC611B41F27D32F009241DA /* Coordinate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

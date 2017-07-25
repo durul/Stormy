@@ -38,6 +38,10 @@
 	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>We use your location data to find somethhing around you</string>
+    <key>NSLocationUsageDescription</key>
+    <string>I need location</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>I need location</string>
 	<key>NSSiriUsageDescription</key>
 	<string>Stormy uses Siri.</string>
 	<key>UIApplicationShortcutWidget</key>

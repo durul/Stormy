@@ -2,6 +2,7 @@
 //  ViewControllerTV.swift
 
 import UIKit
+import CoreLocation
 
     //MARK: - UIViewController Properties
 class ViewControllerTV: UIViewController {
@@ -19,7 +20,11 @@ class ViewControllerTV: UIViewController {
 	@IBOutlet weak var summaryLabel: UILabel!
 	@IBOutlet weak var refreshButton: UIButton!
 	@IBOutlet weak var refreshActivityIndicator: UIActivityIndicatorView!
-	
+
+    let manager = LocationManager()
+    var myCoordinate: Coordinate? = nil
+    let geoCoder = CLGeocoder()
+
     //MARK: - Super Methods
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -70,74 +75,108 @@ class ViewControllerTV: UIViewController {
         }, completion: nil)
         
     }
-    
-	func getCurrentWeatherData() -> Void {
-		
-		guard let baseURL = URL(string: "https://api.forecast.io/forecast/\(APIKey)/") else {
-			print("Error: cannot create URL")
-			return
-		}
-		
-		guard let forecastURL = URL(string: "37.8267,-122.423", relativeTo: baseURL) else {
-			print("Error: cannot create URL")
-			return
-		}
-		
-		let unwrappedForecastURL = forecastURL
-		
-		let sharedSession = URLSession.shared
-		let downloadTask: URLSessionDownloadTask = sharedSession.downloadTask(with: unwrappedForecastURL, completionHandler: { (location, response, error) -> Void in
-			
-			if (error == nil) {
-				let dataObject = try? Data(contentsOf: location!)
-				
-				do {
-					let weatherDictionary = try JSONSerialization.jsonObject(with: dataObject!, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
-					
-					let currentWeather = Current(weatherDictionary: weatherDictionary!)
-                    let currentImage = CurrentImage(weatherDictionary: weatherDictionary!)
 
-// We’re doing the loading off the main thread, and then coming back onto the main thread to update the UI.
-					DispatchQueue.main.async(execute: { () -> Void in
-						self.temperatureLabel.text = "\(currentWeather.temperature)"
-						self.iconView.image = currentImage.icon!
-						self.currentTimeLabel.text = "At \(currentWeather.currentTime!) it is"
-//                        self.humidityLabel.text = "\(currentWeather.humidity)%"
-//                        self.precipitationLabel.text = "\(currentWeather.precipProbability)%"
-						self.summaryLabel.text = "\(currentWeather.summary)"
-//
-//                        //Stop refresh animation
-						self.refreshActivityIndicator.stopAnimating()
-						self.refreshActivityIndicator.isHidden = true
-						self.refreshButton.isHidden = false
-					})
-					
-				} catch let error as NSError {
-					let networkIssueController = UIAlertController(title: "Error", message: "Unable to load data. Connectivity error!", preferredStyle: .alert)
-					
-					let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
-					networkIssueController.addAction(okButton)
-					
-					let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-					networkIssueController.addAction(cancelButton)
-					
-					self.present(networkIssueController, animated: true, completion: nil)
-					
-					DispatchQueue.main.async(execute: { () -> Void in
-						// Stop refresh animation
-						self.refreshActivityIndicator.stopAnimating()
-						self.refreshActivityIndicator.isHidden = true
-						self.refreshButton.isHidden = false
-					})
-					print(error)
-				}
-			}
-			
-		})
-		
-		downloadTask.resume()
-	}
-	
+    func getCurrentWeatherData() -> Void {
+
+        guard let baseURL = URL(string: "https://api.forecast.io/forecast/\(APIKey)/") else {
+            print("Error: cannot create URL")
+            return
+        }
+
+        manager.onLocationFix = { [weak self] coordinate in
+            self?.myCoordinate = coordinate
+
+            guard let forecastURL = URL(string: "\(coordinate.latitude),\(coordinate.longitude)", relativeTo: baseURL) else {
+                print("Error: cannot create forecastURL")
+                return
+            }
+
+            let config = URLSessionConfiguration.default
+            let sharedSession = URLSession(configuration: config)
+
+            // Sending request to the server.
+            let downloadTask: URLSessionDownloadTask = sharedSession.downloadTask(with: forecastURL, completionHandler: { (data, response, error) -> Void in
+
+                // Checking internet connection availability
+                if Reachability.isConnectedToNetwork() {
+
+                    let dataObject = try? Data(contentsOf: data!)
+
+                    if let httpResponse = response as? HTTPURLResponse, (200..<300) ~= httpResponse.statusCode {
+                        print(httpResponse)
+                    } else {
+                        print(ServiceError.other)
+                    }
+
+                    // Parsing incoming data
+                    do {
+                        let weatherDictionary = try JSONSerialization.jsonObject(with: dataObject!, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String: AnyObject]
+
+                        let currentWeather = Current(weatherDictionary: weatherDictionary! as NSDictionary)
+                        let currentImage = CurrentImage(weatherDictionary: weatherDictionary! as NSDictionary)
+                        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+
+
+                        self?.geoCoder.reverseGeocodeLocation(location) { (placemarks, error) -> Void in
+
+                            let placeArray = placemarks as [CLPlacemark]!
+
+                            // Place details
+                            var placeMark: CLPlacemark!
+                            placeMark = placeArray?[0]
+
+                            // Address dictionary
+                            print(placeMark.addressDictionary!)
+
+                            // Location name
+                            if let locationName = placeMark.addressDictionary?["City"] as? NSString
+                            {
+                                self?.currentTimeLabel.text = locationName as String
+                            }
+                        }
+
+                        // We’re doing the loading off the main thread, and then coming back onto the main thread to update the UI.
+                        DispatchQueue.main.async(execute: { () -> Void in
+                            self?.temperatureLabel.text = "\(currentWeather.temperature)"
+                            self?.iconView.image = currentImage.icon!
+                            self?.summaryLabel.text = "\(currentWeather.summary)"
+
+                            // Stop refresh animation
+                            self?.refreshActivityIndicator.stopAnimating()
+                            self?.refreshActivityIndicator.isHidden = true
+                            self?.refreshButton.isHidden = false
+                        })
+
+                    } catch let error as NSError {
+                        print(error)
+                    }
+                } else {
+                    let networkIssueController = UIAlertController(title: "Error", message: "Unable to load data. Connectivity error!", preferredStyle: .alert)
+
+                    let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    networkIssueController.addAction(okButton)
+
+                    let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                    networkIssueController.addAction(cancelButton)
+
+                    self?.present(networkIssueController, animated: true, completion: { () in
+                        print("Done🔨", ServiceError.noInternetConnection)
+                    })
+
+                    DispatchQueue.main.async(execute: { () -> Void in
+                        // Stop refresh animation
+                        self?.refreshActivityIndicator.stopAnimating()
+                        self?.refreshActivityIndicator.isHidden = true
+                        self?.refreshButton.isHidden = false
+                    })
+                    
+                }
+            })
+            
+            downloadTask.resume()
+        }
+    }
+
     //MARK: - IBActions
 	@IBAction func refresh() {
 		getCurrentWeatherData()

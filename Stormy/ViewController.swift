@@ -3,6 +3,7 @@
 
 import UIKit
 import Intents
+import CoreLocation
 
     //MARK: - UIViewController Properties
 class ViewController: UIViewController {
@@ -20,9 +21,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var refreshActivityIndicator: UIActivityIndicatorView!
-    
+    @IBOutlet weak var currentLocationLabel: UILabel!
+
+    //MARK: - Properties
     var localDataObjects = NSArray() // NSArray because Swift arrays don't have objectAtIndex
-    
+    let manager = LocationManager()
+    var myCoordinate: Coordinate? = nil
+    let geoCoder = CLGeocoder()
+
     //MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +44,10 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(didChangePowerMode), name: NSNotification.Name.NSProcessInfoPowerStateDidChange, object: nil)
         
         getCurrentWeatherData()
+        manager.getPermission()
+
     }
-    
+
     func didChangePowerMode(notification: NSNotification) {
         if ProcessInfo.processInfo.isLowPowerModeEnabled {
             refreshActivityIndicator.isHidden = true
@@ -65,8 +73,7 @@ class ViewController: UIViewController {
             getCurrentWeatherData()
         }
     }
-    
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -78,7 +85,6 @@ class ViewController: UIViewController {
         currentTimeLabel.alpha = 0.0
         temperatureLabel.alpha = 0.0
     }
-
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -113,27 +119,33 @@ class ViewController: UIViewController {
     //MARK: - Public Method
     func getCurrentWeatherData() -> Void {
         // https://api.forecast.io/forecast/bec6820ba3d3baeddbae393d2a240e73/37.8267,-122.423
-        
+
         guard let baseURL = URL(string: "https://api.forecast.io/forecast/\(APIKey)/") else {
             print("Error: cannot create URL")
             return
         }
 
-        guard let forecastURL = URL(string: "37.8267,-122.423", relativeTo: baseURL) else {
-            print("Error: cannot create URL")
+        manager.onLocationFix = { [weak self] coordinate in
+            self?.myCoordinate = coordinate
+
+        guard let forecastURL = URL(string: "\(coordinate.latitude),\(coordinate.longitude)", relativeTo: baseURL) else {
+            print("Error: cannot create forecastURL")
             return
         }
-            
+
+        print("Create \(forecastURL)")
+
         let config = URLSessionConfiguration.default
         let sharedSession = URLSession(configuration: config)
-        
+
+
         // Sending request to the server.
-        let downloadTask: URLSessionDownloadTask = sharedSession.downloadTask(with: forecastURL, completionHandler: { (location, response, error) -> Void in
-            
+        let downloadTask: URLSessionDownloadTask = sharedSession.downloadTask(with: forecastURL, completionHandler: { (data, response, error) -> Void in
+
             // Checking internet connection availability
             if Reachability.isConnectedToNetwork() {
 
-                let dataObject = try? Data(contentsOf: location!)
+                let dataObject = try? Data(contentsOf: data!)
                 
                 if let httpResponse = response as? HTTPURLResponse, (200..<300) ~= httpResponse.statusCode {
                     print(httpResponse)
@@ -147,32 +159,47 @@ class ViewController: UIViewController {
                     
                     let currentWeather = Current(weatherDictionary: weatherDictionary! as NSDictionary)
                     let currentImage = CurrentImage(weatherDictionary: weatherDictionary! as NSDictionary)
+                    let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
 
-// We’re doing the loading off the main thread, and then coming back onto the main thread to update the UI.        
+
+                    self?.geoCoder.reverseGeocodeLocation(location) { (placemarks, error) -> Void in
+
+                        let placeArray = placemarks as [CLPlacemark]!
+
+                        // Place details
+                        var placeMark: CLPlacemark!
+                        placeMark = placeArray?[0]
+
+                        // Address dictionary
+                        print(placeMark.addressDictionary!)
+
+                        // Location name
+                        if let locationName = placeMark.addressDictionary?["City"] as? NSString
+                        {
+                            self?.currentLocationLabel.text = locationName as String
+                        }
+                    }
+
+                    // We’re doing the loading off the main thread, and then coming back onto the main thread to update the UI.
                     DispatchQueue.main.async(execute: { () -> Void in
-                        self.temperatureLabel.text = "\(currentWeather.temperature)"
-                        self.iconView.image = currentImage.icon!
-                        self.currentTimeLabel.text = "At \(currentWeather.currentTime!) it is"
-                        self.humidityLabel.text = "\(currentWeather.humidity)%"
-                        self.precipitationLabel.text = "\(currentWeather.precipProbability)%"
-                        self.summaryLabel.text = "\(currentWeather.summary)"
+                        self?.temperatureLabel.text = "\(currentWeather.temperature)"
+                        self?.iconView.image = currentImage.icon!
+                        self?.currentTimeLabel.text = "At \(currentWeather.currentTime!) it is"
+                        self?.humidityLabel.text = "\(currentWeather.humidity)%"
+                        self?.precipitationLabel.text = "\(currentWeather.precipProbability)%"
+                        self?.summaryLabel.text = "\(currentWeather.summary)"
                         
                         // Stop refresh animation
-                        self.refreshActivityIndicator.stopAnimating()
-                        self.refreshActivityIndicator.isHidden = true
-                        self.refreshButton.isHidden = false
-                        
+                        self?.refreshActivityIndicator.stopAnimating()
+                        self?.refreshActivityIndicator.isHidden = true
+                        self?.refreshButton.isHidden = false
                     })
-                    
-                    
+
                 } catch let error as NSError {
                     print(error)
                 }
-            }
-                
-            else {
-                let networkIssueController = UIAlertController(title: "Error",
-                                                               message: "Unable to load data. Connectivity error!", preferredStyle: .alert)
+            } else {
+                let networkIssueController = UIAlertController(title: "Error", message: "Unable to load data. Connectivity error!", preferredStyle: .alert)
                 
                 let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
                 networkIssueController.addAction(okButton)
@@ -180,23 +207,24 @@ class ViewController: UIViewController {
                 let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
                 networkIssueController.addAction(cancelButton)
                 
-                self.present(networkIssueController, animated: true, completion: { () in
+                self?.present(networkIssueController, animated: true, completion: { () in
                     print("Done🔨", ServiceError.noInternetConnection)
                 })
                 
                 DispatchQueue.main.async(execute: { () -> Void in
                     // Stop refresh animation
-                    self.refreshActivityIndicator.stopAnimating()
-                    self.refreshActivityIndicator.isHidden = true
-                    self.refreshButton.isHidden = false
+                    self?.refreshActivityIndicator.stopAnimating()
+                    self?.refreshActivityIndicator.isHidden = true
+                    self?.refreshButton.isHidden = false
                 })
                 
             }
         })
-        
+
         downloadTask.resume()
+        }
     }
-    
+
     @available(iOS 10.0, *)
     func siriAuthorizing() {
         INPreferences.requestSiriAuthorization {
