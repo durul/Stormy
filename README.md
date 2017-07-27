@@ -1,5 +1,5 @@
 <p align="center" >
-  <img src="https://github.com/durul/Stormy/blob/master/Untitled.png" width=210px height=204px alt="Stormy" title="Stormy">
+  <img src="https://github.com/durul/Stormy/blob/master/Untitled.png" width=400px height=300px alt="Stormy" title="Stormy">
 </p>
 
 
