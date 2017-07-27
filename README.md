@@ -1,4 +1,7 @@
-![Untitled.png](https://github.com/durul/Stormy/blob/master/Untitled.png)
+<p align="center" >
+  <img src="https://github.com/durul/Stormy/blob/master/Untitled.png" width=210px height=204px alt="Stormy" title="Stormy">
+</p>
+
 
 # Stormy
 
