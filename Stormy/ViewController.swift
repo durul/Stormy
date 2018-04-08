@@ -48,7 +48,7 @@ class ViewController: UIViewController {
 
     }
 
-    func didChangePowerMode(notification: NSNotification) {
+    @objc func didChangePowerMode(notification: NSNotification) {
         if ProcessInfo.processInfo.isLowPowerModeEnabled {
             refreshActivityIndicator.isHidden = true
             refreshButton.isHidden = true

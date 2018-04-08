@@ -18,7 +18,7 @@ struct Current {
 	
     //MARK: - Properties
 	var currentTime: String?
-	var temperature: Int
+	var temperature: NSNumber
 	var humidity: Int
 	var precipProbability: Int
 	var summary: String
@@ -27,7 +27,7 @@ struct Current {
 	init(weatherDictionary: NSDictionary) {
 		let currentWeather = weatherDictionary["currently"] as! NSDictionary
 		
-		temperature = currentWeather["temperature"] as! Int
+        temperature = currentWeather["temperature"] as! NSNumber
 		let humidityFloat = currentWeather["humidity"] as! Double
 		humidity = Int(humidityFloat * 100)
 		

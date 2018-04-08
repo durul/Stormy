@@ -24,9 +24,9 @@
 
 ## Requirements
 - Xcode 8.3.2
-- Swift 3.1+
-- Deployment Target = iOS 10.3
-- Base SDK = iOS 9.3
+- Swift 4.1+
+- Deployment Target = iOS 11.3
+- Base SDK = iOS 10.3
 
 ## Asset Credits
 Portfolio: http://durul.github.io

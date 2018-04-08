@@ -29,7 +29,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     // Create custom app URLs
-    func doLaunchApp() {
+    @objc func doLaunchApp() {
         if let url = URL(string: "Stormy://") {
             self.extensionContext?.open(url, completionHandler: nil)
         }
