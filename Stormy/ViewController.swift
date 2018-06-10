@@ -136,12 +136,34 @@ class ViewController: UIViewController {
         print("Create \(forecastURL)")
 
         let config = URLSessionConfiguration.default
+            // Helping to energy impact and it is optimizing
+            // This will allow to know when you connect to the server of your choice.
+            
+            if #available(iOS 11.0, *) {
+                config.waitsForConnectivity = true
+            } else {
+                // Fallback on earlier versions
+            }
+            
+            // Set discretionary property
+            config.isDiscretionary = true
+            
+            let cachesDirectoryURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
+            
+            let cacheURL = try! cachesDirectoryURL.appendingPathComponent("MyCache")
+            let diskPath = cacheURL.path
+            
+            let cache = URLCache(memoryCapacity:16384, diskCapacity: 268435456, diskPath: diskPath)
+            config.urlCache = cache
+            config.requestCachePolicy = .useProtocolCachePolicy
+            
         let sharedSession = URLSession(configuration: config)
 
 
         // Sending request to the server.
         let downloadTask: URLSessionDownloadTask = sharedSession.downloadTask(with: forecastURL, completionHandler: { (data, response, error) -> Void in
 
+            
             // Checking internet connection availability
             if Reachability.isConnectedToNetwork() {
 
@@ -217,10 +239,25 @@ class ViewController: UIViewController {
                     self?.refreshActivityIndicator.isHidden = true
                     self?.refreshButton.isHidden = false
                 })
-                
             }
+
         })
 
+            if #available(iOS 11.0, *) {
+                // This will help us indicate the system the best time to do
+                // These are sent to data an effecient way. 
+                // Set time window
+                downloadTask.earliestBeginDate = Date(timeIntervalSinceNow: 2 * 60 * 60)
+                
+                // Set workload size
+                downloadTask.countOfBytesClientExpectsToSend = 80
+                downloadTask.countOfBytesClientExpectsToReceive = 2048
+                
+            } else {
+                // Fallback on earlier versions
+            }
+    
+            
         downloadTask.resume()
         }
     }
