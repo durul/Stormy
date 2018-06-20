@@ -296,3 +296,50 @@ class ViewController: UIViewController {
     
 }
 
+extension ViewController {
+    
+    
+    // MARK: - Layout-related methods
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        print("viewWillLayoutSubviews")
+    }
+    
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        print("viewWillTransition")
+    }
+    
+    override func viewLayoutMarginsDidChange() {
+        if #available(iOS 11.0, *) {
+            super.viewLayoutMarginsDidChange()
+        } else {
+            // Fallback on earlier versions
+        }
+        print("viewLayoutMarginsDidChange")
+    }
+    
+    override func viewSafeAreaInsetsDidChange() {
+        if #available(iOS 11.0, *) {
+            super.viewSafeAreaInsetsDidChange()
+        } else {
+            // Fallback on earlier versions
+        }
+        print("viewSafeAreaInsetsDidChange")
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        print("viewDidLayoutSubviews")
+
+        if #available(iOS 11.0, *) {
+            dump(systemMinimumLayoutMargins)
+        } else {
+            
+        }
+        
+        dump(view.layoutMargins)
+    }
+}
