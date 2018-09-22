@@ -25,6 +25,7 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
 		super.init()
 		manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
+        manager.activityType = .airborne // ✈️
 		manager.requestLocation()
 	}
 	
