@@ -25,7 +25,11 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
 		super.init()
 		manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
-        manager.activityType = .airborne // ✈️
+        if #available(iOS 12.0, *) {
+            manager.activityType = .airborne
+        } else {
+            // Fallback on earlier versions
+        } // ✈️
 		manager.requestLocation()
 	}
 	

@@ -61,6 +61,7 @@
 		2EC611BA1F27DA8D009241DA /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E30458C1EAE6C4C005A287D /* Reachability.swift */; };
 		2EC611BB1F27DA9A009241DA /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E30458E1EAE6CF5005A287D /* ServiceError.swift */; };
 		2EC611BC1F27DA9A009241DA /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E30458E1EAE6CF5005A287D /* ServiceError.swift */; };
+		2EE0649521960E0400A720F6 /* SignpostLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE0649421960E0400A720F6 /* SignpostLog.swift */; };
 		3915E84FBCB57B0204766D33 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A5B63DAB0532F478B04DD5 /* CoreTelephony.framework */; };
 		4B830C243ABCC6A26627F797 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47E3CC963737A0EA8FAFBA60 /* CoreText.framework */; };
 		693B9CF8563310A91D6362B9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A961150812E7449ADE8D6EAE /* AVFoundation.framework */; };
@@ -209,6 +210,7 @@
 		2E9796DD1EBBF2BB0073EE93 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		2EC611B21F27D32F009241DA /* Coordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		2EC611B31F27D32F009241DA /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		2EE0649421960E0400A720F6 /* SignpostLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignpostLog.swift; sourceTree = "<group>"; };
 		47E3CC963737A0EA8FAFBA60 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		6985F18C1A522A4FF5DCC178 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6C620DE83A1C35DB0CFF590F /* Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
@@ -491,6 +493,7 @@
 		973F803019C7867F00AC61CE /* Stormy */ = {
 			isa = PBXGroup;
 			children = (
+				2EE0649421960E0400A720F6 /* SignpostLog.swift */,
 				2E9796DA1EBBF2790073EE93 /* Config */,
 				2E30458B1EAE6776005A287D /* Networking */,
 				2E76CDB81EAE38E700587548 /* Stormy.entitlements */,
@@ -931,6 +934,7 @@
 				2E30458D1EAE6C4C005A287D /* Reachability.swift in Sources */,
 				2EC611B51F27D32F009241DA /* LocationManager.swift in Sources */,
 				2E3014131D229472007082AF /* Image.swift in Sources */,
+				2EE0649521960E0400A720F6 /* SignpostLog.swift in Sources */,
 				973F803619C7867F00AC61CE /* ViewController.swift in Sources */,
 				2E6BA4931EBCB53F00AD1DEA /* AppFonts.swift in Sources */,
 				2E30458F1EAE6CF5005A287D /* ServiceError.swift in Sources */,
@@ -1093,7 +1097,7 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 5.0;
 			};
@@ -1119,7 +1123,7 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 5.0;
 			};
@@ -1146,7 +1150,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1171,7 +1175,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -1196,7 +1200,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1221,7 +1225,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -1248,7 +1252,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1275,7 +1279,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -1297,7 +1301,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.durul.StormyTV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 11.3;
 			};
@@ -1322,7 +1326,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.durul.StormyTV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 11.3;
 			};
@@ -1348,7 +1352,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stormy.app/Stormy";
 			};
 			name = Debug;
@@ -1373,7 +1377,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.durul.StormyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stormy.app/Stormy";
 			};
 			name = Release;
@@ -1457,7 +1461,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Development;
 		};
@@ -1479,7 +1483,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.durul.StormyTV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 11.3;
 			};
@@ -1527,7 +1531,7 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 5.0;
 			};
@@ -1553,7 +1557,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stormy.app/Stormy";
 			};
 			name = Development;
@@ -1581,7 +1585,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Development;
 		};
@@ -1606,7 +1610,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Development;
 		};
@@ -1631,7 +1635,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Development;
 		};
@@ -1764,7 +1768,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1790,7 +1794,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

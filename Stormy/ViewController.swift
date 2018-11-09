@@ -4,6 +4,8 @@
 import UIKit
 import Intents
 import CoreLocation
+import os.log
+import os.signpost
 
 //MARK: - UIViewController Properties
 class ViewController: UIViewController {
@@ -29,6 +31,9 @@ class ViewController: UIViewController {
     var myCoordinate: Coordinate? = nil
     let geoCoder = CLGeocoder()
     
+    let logger = OSLog(subsystem: "com.stormy", category: "weather")
+    var count = 0
+    
     //MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +51,11 @@ class ViewController: UIViewController {
         getCurrentWeatherData()
         manager.getPermission()
         
+        if #available(iOS 12.0, *) {
+            os_signpost(.event, log: SignpostLog.pointsOfInterest, name: "ViewController-viewDidLoad")
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     @objc func didChangePowerMode(notification: NSNotification) {
@@ -54,7 +64,7 @@ class ViewController: UIViewController {
             refreshButton.isHidden = true
             
             // low power mode on
-            let alertController = UIAlertController(title: "Low power mode ON", message: "You can't get current information data", preferredStyle:UIAlertControllerStyle.alert)
+            let alertController = UIAlertController(title: "Low power mode ON", message: "You can't get current information data", preferredStyle:UIAlertController.Style.alert)
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
                 print("you have pressed the Cancel button");
@@ -84,6 +94,12 @@ class ViewController: UIViewController {
         humidityLabel.alpha = 0.0
         currentTimeLabel.alpha = 0.0
         temperatureLabel.alpha = 0.0
+        
+        if #available(iOS 12.0, *) {
+            os_signpost(.event, log: SignpostLog.pointsOfInterest, name: "ViewController-viewWillAppear")
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -113,7 +129,12 @@ class ViewController: UIViewController {
         UIView.animate(withDuration: 0.5, delay: 0.5, options: [], animations: {
             self.temperatureLabel.alpha = 1.0
         }, completion: nil)
-        
+     
+        if #available(iOS 12.0, *) {
+            os_signpost(.event, log: SignpostLog.pointsOfInterest, name: "ViewController-viewDidAppear")
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     //MARK: - Public Method
