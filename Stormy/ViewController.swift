@@ -56,6 +56,8 @@ class ViewController: UIViewController {
         } else {
             // Fallback on earlier versions
         }
+        
+        registerForThermalNotifications()
     }
     
     @objc func didChangePowerMode(notification: NSNotification) {
@@ -302,6 +304,30 @@ class ViewController: UIViewController {
                 print("denied")
                 break
             }
+        }
+    }
+    
+    //Registering for Thermal Change notifications
+    private func registerForThermalNotifications() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(responseToHeat(_:)),
+                                               name: ProcessInfo.thermalStateDidChangeNotification,
+                                               object: nil)
+    }
+
+    
+    @objc private func responseToHeat(_ notification: Notification ) {
+        
+        let state = ProcessInfo.processInfo.thermalState
+        switch state {
+        case .nominal: break
+        // No action required as such
+        case .fair: break
+        // Starts getting heated up. Try reducing CPU expensive operations.
+        case .serious: break
+        // Time to reduce the CPU usage and make sure you are not burning more
+        case .critical: break
+            // Reduce every operations and make initiate device cool down.
         }
     }
     
