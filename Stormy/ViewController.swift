@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     //MARK: - Private Properties
     // Replace the string below with your API Key.
-    fileprivate let APIKey = "bec6820ba3d3baeddbae393d2a240e73"
+    fileprivate let APIKey = "d4a3fa28749fcf9cde0078fe4b1617e0"
     
     //MARK: - IBOutlets
     @IBOutlet weak var iconView: UIImageView!
@@ -131,7 +131,7 @@ class ViewController: UIViewController {
         UIView.animate(withDuration: 0.5, delay: 0.5, options: [], animations: {
             self.temperatureLabel.alpha = 1.0
         }, completion: nil)
-     
+        
         if #available(iOS 12.0, *) {
             os_signpost(.event, log: SignpostLog.pointsOfInterest, name: "ViewController-viewDidAppear")
         } else {
@@ -314,20 +314,20 @@ class ViewController: UIViewController {
                                                name: ProcessInfo.thermalStateDidChangeNotification,
                                                object: nil)
     }
-
+    
     
     @objc private func responseToHeat(_ notification: Notification ) {
         
         let state = ProcessInfo.processInfo.thermalState
         switch state {
-        case .nominal: break
-        // No action required as such
-        case .fair: break
-        // Starts getting heated up. Try reducing CPU expensive operations.
-        case .serious: break
-        // Time to reduce the CPU usage and make sure you are not burning more
-        case .critical: break
-            // Reduce every operations and make initiate device cool down.
+        case .nominal:
+            print("nominal")
+        case .fair:
+            print("Starts getting heated up. Try reducing CPU expensive operations.")
+        case .serious:
+            print("Time to reduce the CPU usage and make sure you are not burning more")
+        case .critical:
+            print("Reduce every operations and make initiate device cool down.")
         }
     }
     

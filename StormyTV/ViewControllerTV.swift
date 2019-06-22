@@ -78,7 +78,7 @@ class ViewControllerTV: UIViewController {
 
     func getCurrentWeatherData() -> Void {
 
-        guard let baseURL = URL(string: "https://api.forecast.io/forecast/\(APIKey)/") else {
+        guard let baseURL = URL(string: "https://api.darksky.net/forecast/\(APIKey)/") else {
             print("Error: cannot create URL")
             return
         }
