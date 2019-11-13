@@ -10,6 +10,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Run tests
-      run: xcodebuild -project 'Stormy.xcodeproj' -scheme 'Stormy' -destination 'platform=iOS Simulator, name=iPhone 8' test
+      run: xcodebuild -project 'Stormy.xcodeproj' -scheme 'Stormy' -destination 'platform=iOS Simulator,name=iPhone 8' test
     - name: Build App
       run: xcodebuild -project 'Stormy.xcodeproj' -scheme 'Stormy' -destination 'generic/platform=iOS' -configuration Release build CODE_SIGNING_ALLOWED=NO
