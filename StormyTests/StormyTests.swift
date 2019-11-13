@@ -27,7 +27,7 @@ class StormyTests: XCTestCase {
     // Asynchronous test: success fast, failure slow
     func testValidCallToiTunesGetsHTTPStatusCode200() {
         // given
-        let url = URL(string: "https://api.forecast.io/forecast/bec6820ba3d3baeddbae393d2a240e73/37.8267,-122.423")
+        let url = URL(string: "https://api.darksky.net/forecast/a2f0612d136cd5acf1bf20aa3369a990/37.8267,-122.4233")
         
         // 1- The description parameter describes what you expect to happen.
         let promise = expectation(description: "Status code: 200")
@@ -62,7 +62,7 @@ class StormyTests: XCTestCase {
     // Asynchronous test: faster fail
     func testCallToiTunesCompletes() {
         // given
-        let url = URL(string: "https://api.forecast.io/forecast/bec6820ba3d3baeddbae393d2a240e73/37.8267,-122.423")
+        let url = URL(string: "https://api.darksky.net/forecast/a2f0612d136cd5acf1bf20aa3369a990/37.8267,-122.4233")
      
         let promise = expectation(description: "Completion handler invoked")
         var statusCode: Int?

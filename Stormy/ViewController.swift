@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     //MARK: - Private Properties
     // Replace the string below with your API Key.
-    fileprivate let APIKey = "d4a3fa28749fcf9cde0078fe4b1617e0"
+    fileprivate let APIKey = "a2f0612d136cd5acf1bf20aa3369a990"
     
     //MARK: - IBOutlets
     @IBOutlet weak var iconView: UIImageView!
@@ -143,7 +143,7 @@ class ViewController: UIViewController {
     func getCurrentWeatherData() -> Void {
         // https://api.forecast.io/forecast/bec6820ba3d3baeddbae393d2a240e73/37.8267,-122.423
         
-        guard let baseURL = URL(string: "https://api.forecast.io/forecast/\(APIKey)/") else {
+        guard let baseURL = URL(string: "https://api.darksky.net/forecast/\(APIKey)/") else {
             print("Error: cannot create URL")
             return
         }
@@ -208,7 +208,7 @@ class ViewController: UIViewController {
                         
                         self?.geoCoder.reverseGeocodeLocation(location) { (placemarks, error) -> Void in
                             
-                            let placeArray = placemarks as [CLPlacemark]!
+                            let placeArray = placemarks as [CLPlacemark]?
                             
                             // Place details
                             var placeMark: CLPlacemark!
