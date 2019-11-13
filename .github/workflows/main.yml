@@ -9,7 +9,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: Force xcode 11
+      run: sudo xcode-select -switch /Applications/Xcode_11.1.app
     - name: Run tests
-      run: xcodebuild -project 'Stormy.xcodeproj' -scheme 'Stormy' -destination 'platform=iOS Simulator,name=iPhone 8' test
+      run: xcodebuild -project 'Stormy.xcodeproj' -scheme 'Stormy' -destination 'platform=iOS Simulator,name=iPhone 8,OS=13.2.2' test
     - name: Build App
       run: xcodebuild -project 'Stormy.xcodeproj' -scheme 'Stormy' -destination 'generic/platform=iOS' -configuration Release build CODE_SIGNING_ALLOWED=NO
