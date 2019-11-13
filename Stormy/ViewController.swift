@@ -60,7 +60,7 @@ class ViewController: UIViewController {
         registerForThermalNotifications()
     }
     
-    @objc func didChangePowerMode(notification: NSNotification) {
+    func didChangePowerMode(notification: NSNotification) {
         if ProcessInfo.processInfo.isLowPowerModeEnabled {
             refreshActivityIndicator.isHidden = true
             refreshButton.isHidden = true
