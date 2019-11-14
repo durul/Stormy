@@ -38,4 +38,3 @@ if testFiles.isEmpty {
 }
 
 message("🎉 The PR added \(additions) and removed \(deletions) lines. 🗂 \(changedFiles) files changed.")
-view rawDangerfile.swift hosted with ❤ by GitHub
