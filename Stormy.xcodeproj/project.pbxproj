@@ -157,6 +157,16 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		493EA8CF237DFFF9000B245A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -665,6 +675,8 @@
 				973F802C19C7867F00AC61CE /* Resources */,
 				2E3014101D228FCC007082AF /* Embed Watch Content */,
 				2E3646331E8AD5DA00C0151A /* Embed App Extensions */,
+				493EA8CF237DFFF9000B245A /* Embed Frameworks */,
+				493EA8D0237E016C000B245A /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -675,6 +687,8 @@
 				2E3045831EAE4C26005A287D /* PBXTargetDependency */,
 			);
 			name = Stormy;
+			packageProductDependencies = (
+			);
 			productName = Stormy;
 			productReference = 973F802E19C7867F00AC61CE /* Stormy.app */;
 			productType = "com.apple.product-type.application";
@@ -767,6 +781,8 @@
 				Base,
 			);
 			mainGroup = 973F802519C7867F00AC61CE;
+			packageReferences = (
+			);
 			productRefGroup = 973F802F19C7867F00AC61CE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -854,6 +870,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		493EA8D0237E016C000B245A /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2E3013F21D228FCC007082AF /* Sources */ = {
