@@ -33,6 +33,13 @@ class ViewController: UIViewController {
     
     let logger = OSLog(subsystem: "com.stormy", category: "weather")
     var count = 0
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    let userLicenseAgreement  = """
+    Effect of USA and the following with the distribution. The name DD must not be deemed a waiver of future enforcement of that collection of files distributed by that Contributor and the date You accept this license. Here is an example of such Contributor, if any, in source and free culture, all users contributing to Wikimedia projects are available under terms that differ significantly from those contained in the Standard Version, including, but not limited to the terms and conditions of this License.
+    This customary commercial license in technical data rights in the page or pages you are thus distributing it and "any later version", you have fulfilled the obligations of Section 3.1-3.5 have been properly granted shall survive any termination of this License will not be used to control compilation and installation of an aggregate software distribution provided that Apple did not first commence an action for patent infringement claim (excluding declaratory judgment actions) against Initial Developer and the Program in a reasonable period of time after becoming aware of such damages. MAINTENANCE OF THE LICENSED PROGRAM OR THE EXERCISE OF ANY COVERED CODE WILL BE UNINTERRUPTED OR ERROR-FREE, OR THAT DEFECTS IN THE SOFTWARE. Preamble The licenses for most software companies keep you at the time the Contribution is contributed, it may be distributed under Clause 2 above, as long as such will be useful, but WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, ANY WARRANTIES OF TITLE, NON-INFRINGEMENT, MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL DD ``AS IS'' AND ANY EXPRESSED OR IMPLIED INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF GOODWILL, WORK STOPPAGE, COMPUTER FAILURE OR MALFUNCTION, OR ANY DISTRIBUTOR OF LICENSED PRODUCT IS WITH YOU.
+    SHOULD ANY COVERED CODE WILL MEET YOUR REQUIREMENTS, THAT THE COVERED CODE, THAT THE COVERED CODE WILL BE UNINTERRUPTED OR ERROR-FREE, OR THAT DEFECTS IN THE COVERED CODE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY REMEDY. SOME JURISDICTIONS DO NOT ALLOW THE LIMITATION OF LIABILITY. UNDER NO LEGAL THEORY, WHETHER TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE PROGRAM IS WITH YOU. SHOULD LICENSED PRODUCT PROVE DEFECTIVE IN ANY WAY OUT OF THE PROGRAM TO OPERATE WITH ANY OTHER USERS OF THE COVERED CODE IS AUTHORIZED HEREUNDER EXCEPT UNDER THIS DISCLAIMER. TERMINATION. 8.1. This License Agreement shall terminate if it is not possible to put such notice in Exhibit A, which is freely accessible, which conforms with the `Work' referring to freedom, not price. Our General Public License from time to time.
+    """
     
     //MARK: - Super Methods
     override func viewDidLoad() {
@@ -60,7 +67,7 @@ class ViewController: UIViewController {
         registerForThermalNotifications()
     }
     
-    func didChangePowerMode(notification: NSNotification) {
+    @objc func didChangePowerMode(notification: NSNotification) {
         if ProcessInfo.processInfo.isLowPowerModeEnabled {
             refreshActivityIndicator.isHidden = true
             refreshButton.isHidden = true
@@ -106,6 +113,14 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        if(!appDelegate.hasAlreadyLaunched){
+            
+            //set hasAlreadyLaunched to false
+            appDelegate.sethasAlreadyLaunched()
+            //display user agreement license
+            displayLicenAgreement(message: self.userLicenseAgreement)
+        }
         
         UIView.animate(withDuration: 0.5, animations: {
             self.currentTimeLabel.center.x += self.view.bounds.width
@@ -303,14 +318,15 @@ class ViewController: UIViewController {
             case .denied:
                 print("denied")
                 break
+            @unknown default:
+                fatalError()
             }
         }
     }
     
     //Registering for Thermal Change notifications
     private func registerForThermalNotifications() {
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(responseToHeat(_:)),
+        NotificationCenter.default.addObserver(self, selector: #selector(responseToHeat(_:)),
                                                name: ProcessInfo.thermalStateDidChangeNotification,
                                                object: nil)
     }
@@ -328,6 +344,8 @@ class ViewController: UIViewController {
             print("Time to reduce the CPU usage and make sure you are not burning more")
         case .critical:
             print("Reduce every operations and make initiate device cool down.")
+        @unknown default:
+            fatalError()
         }
     }
     
@@ -387,5 +405,27 @@ extension ViewController {
         }
         
         dump(view.layoutMargins)
+    }
+}
+
+// Detecting the first launch
+extension ViewController {
+    func displayLicenAgreement(message:String){
+        
+        //create alert
+        let alert = UIAlertController(title: "License Agreement", message: message, preferredStyle: .alert)
+        
+        //create Decline button
+        let declineAction = UIAlertAction(title: "Decline" , style: .destructive){ (action) -> Void in
+        }
+        
+        //create Accept button
+        let acceptAction = UIAlertAction(title: "Accept", style: .default) { (action) -> Void in
+        }
+        
+        //add task to tableview buttons
+        alert.addAction(declineAction)
+        alert.addAction(acceptAction)
+        self.present(alert, animated: true, completion: nil)
     }
 }
