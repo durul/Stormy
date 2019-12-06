@@ -35,11 +35,10 @@ jobs:
       location: 37.8267,-122.423
       lang: en
       units: us
-      exclude: 'minutely,hourly,daily,alerts,flags'
       dark_sky_secret: ${{ secrets.dark_sky }}
     steps:
       - name: Current Weather
-        run: curl -s --url https://api.forecast.io/forecast/$dark_sky_secret/$location?lang=$lang&units=$units&exclude
+        run: curl -s --url https://api.forecast.io/forecast/$dark_sky_secret/$location?lang=$lang&units=$units
 
   pull_request_only:
     runs-on: macOS-latest
