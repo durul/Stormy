@@ -1,4 +1,5 @@
 name: CI
+# This workflow is triggered on pushes to the repository.
 
 on: 
   push:
@@ -20,3 +21,22 @@ jobs:
       run: xcodebuild -project 'Stormy.xcodeproj' -scheme 'Stormy' -destination 'platform=iOS Simulator,name=iPhone 8,OS=13.2' test
     - name: Build App
       run: xcodebuild -project 'Stormy.xcodeproj' -scheme 'Stormy' -destination 'generic/platform=iOS' -configuration Release build CODE_SIGNING_ALLOWED=NO
+
+  dump:
+    runs-on: macOS-latest
+    steps:
+      - env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+
+  pull_request_only:
+    runs-on: macOS-latest
+    if: github.event_name == 'pull_request'
+    needs: build
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Force xcode 11
+      run: sudo xcode-select -switch /Applications/Xcode_11.2.app
+    - name: Run tests
+      run: xcodebuild -project 'Stormy.xcodeproj' -scheme 'Stormy' -destination 'platform=iOS Simulator,name=iPhone 8,OS=13.2' test
