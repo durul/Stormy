@@ -677,6 +677,7 @@
 				2E3646331E8AD5DA00C0151A /* Embed App Extensions */,
 				493EA8CF237DFFF9000B245A /* Embed Frameworks */,
 				493EA8D0237E016C000B245A /* SwiftLint */,
+				49C3E3C223B0770500AA380C /* Pecker */,
 			);
 			buildRules = (
 			);
@@ -890,6 +891,24 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		49C3E3C223B0770500AA380C /* Pecker */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Pecker;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which pecker >/dev/null; then\n  pecker\nelse\n  echo \"warning: Pecker not installed, download from https://github.com/woshiccm/Pecker\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

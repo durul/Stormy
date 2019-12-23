@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
     <device id="retina4_7" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.15"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -11,10 +11,6 @@
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Stormy" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS" customClass="BackgroundView" customModule="Stormy" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -98,25 +94,26 @@
                             <constraint firstAttribute="trailingMargin" secondItem="2jl-8C-V0z" secondAttribute="trailing" constant="36" id="76q-5C-oqu"/>
                             <constraint firstItem="dwz-aN-3wP" firstAttribute="top" secondItem="7LG-5D-uoB" secondAttribute="bottom" constant="-36" id="8Pf-Mf-GcV"/>
                             <constraint firstItem="7lD-CW-iXb" firstAttribute="centerY" secondItem="1wE-Yd-KHe" secondAttribute="centerY" constant="-0.5" id="98s-70-PWw"/>
-                            <constraint firstAttribute="centerX" secondItem="dwz-aN-3wP" secondAttribute="centerX" constant="-2" id="Agn-lb-NEC"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="U6R-0W-tAW" secondAttribute="bottom" constant="177" id="CEl-C7-KI7"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="9H0-eM-ouG" secondAttribute="bottom" constant="177" id="DPm-Fm-fgh"/>
+                            <constraint firstItem="BNK-QX-rb4" firstAttribute="centerX" secondItem="dwz-aN-3wP" secondAttribute="centerX" constant="-2" id="Agn-lb-NEC"/>
+                            <constraint firstItem="BNK-QX-rb4" firstAttribute="bottom" secondItem="U6R-0W-tAW" secondAttribute="bottom" constant="177" id="CEl-C7-KI7"/>
+                            <constraint firstItem="BNK-QX-rb4" firstAttribute="bottom" secondItem="9H0-eM-ouG" secondAttribute="bottom" constant="177" id="DPm-Fm-fgh"/>
                             <constraint firstItem="dwz-aN-3wP" firstAttribute="top" secondItem="kre-Er-k09" secondAttribute="bottom" constant="8" id="Hfi-W5-A7s"/>
                             <constraint firstItem="2jl-8C-V0z" firstAttribute="top" secondItem="9H0-eM-ouG" secondAttribute="bottom" constant="8" id="U14-Fx-PJO"/>
-                            <constraint firstItem="QMB-IE-Hme" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="89" id="Vjy-Vx-GHW"/>
+                            <constraint firstItem="QMB-IE-Hme" firstAttribute="top" secondItem="BNK-QX-rb4" secondAttribute="top" constant="89" id="Vjy-Vx-GHW"/>
                             <constraint firstItem="Hze-me-qkI" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="48" id="Yrm-YO-U8t"/>
                             <constraint firstItem="QMB-IE-Hme" firstAttribute="leading" secondItem="qjX-hH-90x" secondAttribute="trailing" constant="6" id="bm4-CT-mTz"/>
                             <constraint firstItem="7lD-CW-iXb" firstAttribute="centerX" secondItem="1wE-Yd-KHe" secondAttribute="centerX" constant="0.5" id="dTc-mv-DeI"/>
-                            <constraint firstAttribute="centerX" secondItem="kre-Er-k09" secondAttribute="centerX" constant="-0.5" id="edq-24-ioq"/>
-                            <constraint firstAttribute="centerX" secondItem="7lD-CW-iXb" secondAttribute="centerX" constant="-1.5" id="eeg-UF-Hp9"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="ic6-Ng-Ktn" secondAttribute="bottom" constant="90" id="gg3-oY-SdP"/>
+                            <constraint firstItem="BNK-QX-rb4" firstAttribute="centerX" secondItem="kre-Er-k09" secondAttribute="centerX" constant="-0.5" id="edq-24-ioq"/>
+                            <constraint firstItem="BNK-QX-rb4" firstAttribute="centerX" secondItem="7lD-CW-iXb" secondAttribute="centerX" constant="-1.5" id="eeg-UF-Hp9"/>
+                            <constraint firstItem="BNK-QX-rb4" firstAttribute="bottom" secondItem="ic6-Ng-Ktn" secondAttribute="bottom" constant="90" id="gg3-oY-SdP"/>
                             <constraint firstItem="Hze-me-qkI" firstAttribute="top" secondItem="U6R-0W-tAW" secondAttribute="bottom" constant="8" id="imw-Tc-AeV"/>
-                            <constraint firstItem="qjX-hH-90x" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="72" id="m2o-Ct-Jf1"/>
-                            <constraint firstAttribute="centerX" secondItem="QMB-IE-Hme" secondAttribute="centerX" constant="-33.5" id="pcg-Bc-Mz1"/>
-                            <constraint firstAttribute="centerX" secondItem="ic6-Ng-Ktn" secondAttribute="centerX" constant="-0.5" id="w1n-Qq-kMh"/>
+                            <constraint firstItem="qjX-hH-90x" firstAttribute="top" secondItem="BNK-QX-rb4" secondAttribute="top" constant="72" id="m2o-Ct-Jf1"/>
+                            <constraint firstItem="BNK-QX-rb4" firstAttribute="centerX" secondItem="QMB-IE-Hme" secondAttribute="centerX" constant="-33.5" id="pcg-Bc-Mz1"/>
+                            <constraint firstItem="BNK-QX-rb4" firstAttribute="centerX" secondItem="ic6-Ng-Ktn" secondAttribute="centerX" constant="-0.5" id="w1n-Qq-kMh"/>
                             <constraint firstItem="7LG-5D-uoB" firstAttribute="leading" secondItem="dwz-aN-3wP" secondAttribute="trailing" constant="2" id="wIo-zB-gvM"/>
                             <constraint firstItem="U6R-0W-tAW" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="40" id="zcy-jT-pBr"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="BNK-QX-rb4"/>
                     </view>
                     <connections>
                         <outlet property="currentLocationLabel" destination="QMB-IE-Hme" id="JGT-xf-SL7"/>
