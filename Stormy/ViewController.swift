@@ -427,3 +427,37 @@ extension ViewController {
         self.present(alert, animated: true, completion: nil)
     }
 }
+
+
+#if canImport(SwiftUI) && DEBUG
+
+import SwiftUI
+
+struct ViewControllerRepresentable: UIViewRepresentable {
+
+    func makeUIView(context: Context) -> UIView {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        return makeUIView(context: context, storyboard: storyboard, identifier: "ViewController")
+    }
+
+    func updateUIView(_ view: UIView, context: Context) {
+
+    }
+}
+
+@available(iOS 13.0, *)
+struct ViewControllerPreview: PreviewProvider {
+
+    static var previews: some View {
+        Group {
+            ViewControllerRepresentable()
+                .colorScheme(.light)
+                .previewDisplayName("Light Mode")
+            ViewControllerRepresentable()
+                .colorScheme(.dark)
+                .previewDisplayName("Dark Mode")
+        }
+    }
+}
+
+#endif

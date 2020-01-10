@@ -63,6 +63,7 @@
 		2EC611BC1F27DA9A009241DA /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E30458E1EAE6CF5005A287D /* ServiceError.swift */; };
 		2EE0649521960E0400A720F6 /* SignpostLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE0649421960E0400A720F6 /* SignpostLog.swift */; };
 		3915E84FBCB57B0204766D33 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A5B63DAB0532F478B04DD5 /* CoreTelephony.framework */; };
+		49DBA2DD23C82CBA001E9793 /* UIViewRepresentable+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DBA2DC23C82CBA001E9793 /* UIViewRepresentable+Storyboard.swift */; };
 		4B830C243ABCC6A26627F797 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47E3CC963737A0EA8FAFBA60 /* CoreText.framework */; };
 		693B9CF8563310A91D6362B9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A961150812E7449ADE8D6EAE /* AVFoundation.framework */; };
 		8CA16A3394AA986A6C9B0AE4 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52BFE10C41CD6AAC53A596C /* AssetsLibrary.framework */; };
@@ -222,6 +223,7 @@
 		2EC611B31F27D32F009241DA /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		2EE0649421960E0400A720F6 /* SignpostLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignpostLog.swift; sourceTree = "<group>"; };
 		47E3CC963737A0EA8FAFBA60 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		49DBA2DC23C82CBA001E9793 /* UIViewRepresentable+Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewRepresentable+Storyboard.swift"; sourceTree = "<group>"; };
 		6985F18C1A522A4FF5DCC178 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6C620DE83A1C35DB0CFF590F /* Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		87A5B63DAB0532F478B04DD5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -460,6 +462,7 @@
 		2EF6B8A01D19BDB200E47A7D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				49DBA2DC23C82CBA001E9793 /* UIViewRepresentable+Storyboard.swift */,
 				973F803519C7867F00AC61CE /* ViewController.swift */,
 			);
 			name = Controller;
@@ -985,6 +988,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E76CDB61EAE29A400587548 /* BackgroundView.swift in Sources */,
+				49DBA2DD23C82CBA001E9793 /* UIViewRepresentable+Storyboard.swift in Sources */,
 				97C92D6519C87DF7001C7229 /* Current.swift in Sources */,
 				2E30458D1EAE6C4C005A287D /* Reachability.swift in Sources */,
 				2EC611B51F27D32F009241DA /* LocationManager.swift in Sources */,
