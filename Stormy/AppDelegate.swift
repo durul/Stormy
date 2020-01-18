@@ -13,7 +13,7 @@ import Intents
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    var hasAlreadyLaunched :Bool!
+    var hasAlreadyLaunched: Bool!
     
     internal func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         hasAlreadyLaunched = UserDefaults.standard.bool(forKey: "hasAlreadyLaunched")
         
         //check first launched
-        if (hasAlreadyLaunched) {
+        if hasAlreadyLaunched {
             hasAlreadyLaunched = true
         } else {
             UserDefaults.standard.set(true, forKey: "hasAlreadyLaunched")
@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func sethasAlreadyLaunched(){
+    func sethasAlreadyLaunched() {
         hasAlreadyLaunched = true
     }
     

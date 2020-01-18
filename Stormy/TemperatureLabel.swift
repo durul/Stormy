@@ -7,7 +7,7 @@ import Foundation
 
 class TemperatureLabel: UILabel {
 
-    //MARK: - Super Methods
+    // MARK: - Super Methods
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         

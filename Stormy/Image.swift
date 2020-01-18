@@ -7,10 +7,10 @@ import UIKit
 
 struct CurrentImage {
 
-    //MARK: Properties
+    // MARK: Properties
     var icon: UIImage?
 
-    //MARK: Initialization
+    // MARK: Initialization
     init(weatherDictionary: NSDictionary) {
         let currentWeather = weatherDictionary["currently"] as! NSDictionary
         let iconString = currentWeather["icon"] as! String

@@ -33,7 +33,7 @@ class StormyTests: XCTestCase {
         let promise = expectation(description: "Status code: 200")
         
         // when
-        let dataTask = sessionUnderTest.dataTask(with: url!) { data, response, error in
+        let dataTask = sessionUnderTest.dataTask(with: url!) { _, response, error in
             // then
             if let error = error {
                 XCTFail("Error: \(error.localizedDescription)")
@@ -69,7 +69,7 @@ class StormyTests: XCTestCase {
         var responseError: Error?
         
         // when
-        let dataTask = sessionUnderTest.dataTask(with: url!) { data, response, error in
+        let dataTask = sessionUnderTest.dataTask(with: url!) { _, response, error in
             statusCode = (response as? HTTPURLResponse)?.statusCode
             responseError = error
          

@@ -6,16 +6,16 @@
 import UIKit
 import NotificationCenter
 
-    //MARK: - UIViewController Properties
+    // MARK: - UIViewController Properties
 class TodayViewController: UIViewController, NCWidgetProviding {
     
-    //MARK: - IBOutlets
+    // MARK: - IBOutlets
     @IBOutlet var temperatureLbl: UILabel!
     @IBOutlet var iconImageView: UIImageView!
     
     fileprivate let APIKey = "bec6820ba3d3baeddbae393d2a240e73"
 
-    //MARK: - Super Methods
+    // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,7 +23,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         iconImageView.image = nil
         
         // use tap gesture on label to launch app
-        temperatureLbl.isUserInteractionEnabled = true;
+        temperatureLbl.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(TodayViewController.doLaunchApp))
         temperatureLbl.addGestureRecognizer(tapGesture)
     }
@@ -53,7 +53,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     
-    func getCurrentWeatherData() -> Void {
+    func getCurrentWeatherData() {
         
         guard let baseURL = URL(string: "https://api.forecast.io/forecast/\(APIKey)/") else {
             print("Error: cannot create URL")
@@ -70,9 +70,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         // Sending request to the server.
         let downloadTask: URLSessionDownloadTask = sharedSession.downloadTask(with: forecastURL, completionHandler: {
-            (location, response, error) -> Void in
+            (location, _, error) -> Void in
             
-            if (error == nil) {
+            if error == nil {
                 let dataObject = try? Data(contentsOf: location!)
                 
                 // Parsing incoming data
@@ -90,9 +90,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                 } catch let error as NSError {
                     print(error)
                 }
-            }
-                
-            else {
+            } else {
                 
             }
         })

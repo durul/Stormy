@@ -7,10 +7,10 @@ import CoreLocation
 import os.log
 import os.signpost
 
-//MARK: - UIViewController Properties
+// MARK: - UIViewController Properties
 class ViewController: UIViewController {
     
-    //MARK: - IBOutlets
+    // MARK: - IBOutlets
     @IBOutlet weak var iconView: UIImageView!
     @IBOutlet weak var currentTimeLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -21,15 +21,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var refreshActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var currentLocationLabel: UILabel!
     
-    //MARK: - Properties
+    // MARK: - Properties
     var localDataObjects = NSArray() // NSArray because Swift arrays don't have objectAtIndex
     let manager = LocationManager()
-    var myCoordinate: Coordinate? = nil
+    var myCoordinate: Coordinate?
     let geoCoder = CLGeocoder()
     
     let logger = OSLog(subsystem: "com.stormy", category: "weather")
     var count = 0
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    weak var appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     let userLicenseAgreement  = """
     Effect of USA and the following with the distribution. The name DD must not be deemed a waiver of future enforcement of that collection of files distributed by that Contributor and the date You accept this license. Here is an example of such Contributor, if any, in source and free culture, all users contributing to Wikimedia projects are available under terms that differ significantly from those contained in the Standard Version, including, but not limited to the terms and conditions of this License.
@@ -37,11 +37,11 @@ class ViewController: UIViewController {
     SHOULD ANY COVERED CODE WILL MEET YOUR REQUIREMENTS, THAT THE COVERED CODE, THAT THE COVERED CODE WILL BE UNINTERRUPTED OR ERROR-FREE, OR THAT DEFECTS IN THE COVERED CODE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY REMEDY. SOME JURISDICTIONS DO NOT ALLOW THE LIMITATION OF LIABILITY. UNDER NO LEGAL THEORY, WHETHER TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE PROGRAM IS WITH YOU. SHOULD LICENSED PRODUCT PROVE DEFECTIVE IN ANY WAY OUT OF THE PROGRAM TO OPERATE WITH ANY OTHER USERS OF THE COVERED CODE IS AUTHORIZED HEREUNDER EXCEPT UNDER THIS DISCLAIMER. TERMINATION. 8.1. This License Agreement shall terminate if it is not possible to put such notice in Exhibit A, which is freely accessible, which conforms with the `Work' referring to freedom, not price. Our General Public License from time to time.
     """
     
-    //MARK: - Super Methods
+    // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         print("efwfwef \(Bundle.main.infoDictionary?["API_KEY"] as? String)")
-
+        
         refreshActivityIndicator.isHidden = true
         
         if #available(iOS 10.0, *) {
@@ -70,19 +70,19 @@ class ViewController: UIViewController {
             refreshButton.isHidden = true
             
             // low power mode on
-            let alertController = UIAlertController(title: "Low power mode ON", message: "You can't get current information data", preferredStyle:UIAlertController.Style.alert)
+            let alertController = UIAlertController(title: "Low power mode ON", message: "You can't get current information data", preferredStyle: UIAlertController.Style.alert)
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
-                print("you have pressed the Cancel button");
+                print("you have pressed the Cancel button")
             }
             alertController.addAction(cancelAction)
             
             let OKAction = UIAlertAction(title: "OK", style: .default) { _ in
-                print("you have pressed OK button");
+                print("you have pressed OK button")
             }
             alertController.addAction(OKAction)
             
-            self.present(alertController, animated: true, completion:{ () -> Void in
+            self.present(alertController, animated: true, completion: { () -> Void in
                 //your code here
             })
         } else {
@@ -111,10 +111,10 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if(!appDelegate.hasAlreadyLaunched){
+        if !appDelegate!.hasAlreadyLaunched {
             
             //set hasAlreadyLaunched to false
-            appDelegate.sethasAlreadyLaunched()
+            appDelegate?.sethasAlreadyLaunched()
             //display user agreement license
             displayLicenAgreement(message: self.userLicenseAgreement)
         }
@@ -151,11 +151,32 @@ class ViewController: UIViewController {
         }
     }
     
-    //MARK: - Public Method
-    func getCurrentWeatherData() -> Void {
+    // MARK: - Public Method
+    fileprivate func networkIssueAlertFunc() {
+        let networkIssueController = UIAlertController(title: "Error", message: "Unable to load data. Connectivity error!", preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
+        networkIssueController.addAction(okButton)
+        
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        networkIssueController.addAction(cancelButton)
+        
+        self.present(networkIssueController, animated: true, completion: { () in
+            print("Done🔨", ServiceError.noInternetConnection)
+        })
+        
+        DispatchQueue.main.async(execute: { () -> Void in
+            // Stop refresh animation
+            self.refreshActivityIndicator.stopAnimating()
+            self.refreshActivityIndicator.isHidden = true
+            self.refreshButton.isHidden = false
+        })
+    }
+    
+    func getCurrentWeatherData() {
         // https://api.forecast.io/forecast/bec6820ba3d3baeddbae393d2a240e73/37.8267,-122.423
         let APIKey = Bundle.main.infoDictionary?["API_KEY"] as? String
-
+        
         guard let baseURL = URL(string: "https://api.darksky.net/forecast/\(APIKey ?? "")/") else {
             print("Error: cannot create URL")
             return
@@ -182,7 +203,7 @@ class ViewController: UIViewController {
             let cacheURL = cachesDirectoryURL.appendingPathComponent("MyCache")
             let diskPath = cacheURL.path
             
-            let cache = URLCache(memoryCapacity:16384, diskCapacity: 268435456, diskPath: diskPath)
+            let cache = URLCache(memoryCapacity: 16384, diskCapacity: 268435456, diskPath: diskPath)
             config.urlCache = cache
             config.requestCachePolicy = .useProtocolCachePolicy
             
@@ -219,7 +240,7 @@ class ViewController: UIViewController {
                         let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
                         
                         
-                        self?.geoCoder.reverseGeocodeLocation(location) { (placemarks, error) -> Void in
+                        self?.geoCoder.reverseGeocodeLocation(location) { (placemarks, _) -> Void in
                             
                             let placeArray = placemarks as [CLPlacemark]?
                             
@@ -231,8 +252,7 @@ class ViewController: UIViewController {
                             print(placeMark.addressDictionary!)
                             
                             // Location name
-                            if let locationName = placeMark.addressDictionary?["City"] as? NSString
-                            {
+                            if let locationName = placeMark.addressDictionary?["City"] as? NSString {
                                 self?.currentLocationLabel.text = locationName as String
                             }
                         }
@@ -256,24 +276,7 @@ class ViewController: UIViewController {
                         print(error)
                     }
                 } else {
-                    let networkIssueController = UIAlertController(title: "Error", message: "Unable to load data. Connectivity error!", preferredStyle: .alert)
-                    
-                    let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
-                    networkIssueController.addAction(okButton)
-                    
-                    let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-                    networkIssueController.addAction(cancelButton)
-                    
-                    self?.present(networkIssueController, animated: true, completion: { () in
-                        print("Done🔨", ServiceError.noInternetConnection)
-                    })
-                    
-                    DispatchQueue.main.async(execute: { () -> Void in
-                        // Stop refresh animation
-                        self?.refreshActivityIndicator.stopAnimating()
-                        self?.refreshActivityIndicator.isHidden = true
-                        self?.refreshButton.isHidden = false
-                    })
+                    self?.networkIssueAlertFunc()
                 }
                 
             })
@@ -347,7 +350,7 @@ class ViewController: UIViewController {
         }
     }
     
-    //MARK: - IBActions
+    // MARK: - IBActions
     @IBAction func refresh() {
         getCurrentWeatherData()
         
@@ -408,17 +411,17 @@ extension ViewController {
 
 // Detecting the first launch
 extension ViewController {
-    func displayLicenAgreement(message:String){
+    func displayLicenAgreement(message: String) {
         
         //create alert
         let alert = UIAlertController(title: "License Agreement", message: message, preferredStyle: .alert)
         
         //create Decline button
-        let declineAction = UIAlertAction(title: "Decline" , style: .destructive){ (action) -> Void in
+        let declineAction = UIAlertAction(title: "Decline", style: .destructive) { (_) -> Void in
         }
         
         //create Accept button
-        let acceptAction = UIAlertAction(title: "Accept", style: .default) { (action) -> Void in
+        let acceptAction = UIAlertAction(title: "Accept", style: .default) { (_) -> Void in
         }
         
         //add task to tableview buttons
@@ -434,20 +437,20 @@ extension ViewController {
 import SwiftUI
 
 struct ViewControllerRepresentable: UIViewRepresentable {
-
+    
     func makeUIView(context: Context) -> UIView {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         return makeUIView(context: context, storyboard: storyboard, identifier: "ViewController")
     }
-
+    
     func updateUIView(_ view: UIView, context: Context) {
-
+        
     }
 }
 
 @available(iOS 13.0, *)
 struct ViewControllerPreview: PreviewProvider {
-
+    
     static var previews: some View {
         Group {
             ViewControllerRepresentable()

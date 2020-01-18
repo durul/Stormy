@@ -2,7 +2,7 @@
 //  Current.swift
 //  Stormy
 
-// MARK : Modeling the Current Weather
+// MARK: Modeling the Current Weather
 
 import Foundation
 import UIKit
@@ -16,14 +16,14 @@ extension Current: Equatable {
 
 struct Current {
 	
-    //MARK: - Properties
+    // MARK: - Properties
 	var currentTime: String?
 	var temperature: NSNumber
 	var humidity: Int
 	var precipProbability: Int
 	var summary: String
 
-    //MARK: Initialization
+    // MARK: Initialization
 	init(weatherDictionary: NSDictionary) {
 		let currentWeather = weatherDictionary["currently"] as! NSDictionary
 		

@@ -32,22 +32,22 @@ class InterfaceController: WKInterfaceController {
 		super.didDeactivate()
 	}
 
-    func connection(_ connection: NSURLConnection!, didFailWithError error: NSError!){
+    func connection(_ connection: NSURLConnection!, didFailWithError error: NSError!) {
         print("Error: \(error)")
     }
 
-    func connection(_ connection: NSURLConnection!, didReceiveResponse response: URLResponse!){
+    func connection(_ connection: NSURLConnection!, didReceiveResponse response: URLResponse!) {
         print("Received response: \(response)")
     }
 
-    func connection(_ connection: NSURLConnection!, didReceiveData data:Data!){
+    func connection(_ connection: NSURLConnection!, didReceiveData data: Data!) {
         print("Received data: \(data)")
     }
 
 	// Replace the string below with your API Key.
 	fileprivate let APIKey = "bec6820ba3d3baeddbae393d2a240e73"
 	
-	func getCurrentWeatherData() -> Void {
+	func getCurrentWeatherData() {
 		
 		guard let baseURL = URL(string: "https://api.forecast.io/forecast/\(APIKey)/") else {
 			print("Error: cannot create URL")
@@ -62,9 +62,9 @@ class InterfaceController: WKInterfaceController {
 		let unwrappedForecastURL = forecastURL
 		
 		let sharedSession = URLSession.shared
-		let downloadTask: URLSessionDownloadTask = sharedSession.downloadTask(with: unwrappedForecastURL, completionHandler: { (location, response, error) -> Void in
+		let downloadTask: URLSessionDownloadTask = sharedSession.downloadTask(with: unwrappedForecastURL, completionHandler: { (location, _, error) -> Void in
 			
-			if (error == nil) {
+			if error == nil {
 				let dataObject = try? Data(contentsOf: location!)
 				
 				do {

@@ -4,14 +4,14 @@
 import UIKit
 import CoreLocation
 
-    //MARK: - UIViewController Properties
+    // MARK: - UIViewController Properties
 class ViewControllerTV: UIViewController {
 	
-    //MARK: - Private Properties
+    // MARK: - Private Properties
     // Replace the string below with your API Key.
 	fileprivate let APIKey = "bec6820ba3d3baeddbae393d2a240e73"
 	
-    //MARK: - IBOutlets
+    // MARK: - IBOutlets
 	@IBOutlet weak var iconView: UIImageView!
 	@IBOutlet weak var currentTimeLabel: UILabel!
 	@IBOutlet weak var temperatureLabel: UILabel!
@@ -22,10 +22,10 @@ class ViewControllerTV: UIViewController {
 	@IBOutlet weak var refreshActivityIndicator: UIActivityIndicatorView!
 
     let manager = LocationManager()
-    var myCoordinate: Coordinate? = nil
+    var myCoordinate: Coordinate?
     let geoCoder = CLGeocoder()
 
-    //MARK: - Super Methods
+    // MARK: - Super Methods
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -76,7 +76,7 @@ class ViewControllerTV: UIViewController {
         
     }
 
-    func getCurrentWeatherData() -> Void {
+    func getCurrentWeatherData() {
 
         guard let baseURL = URL(string: "https://api.darksky.net/forecast/\(APIKey)/") else {
             print("Error: cannot create URL")
@@ -117,7 +117,7 @@ class ViewControllerTV: UIViewController {
                         let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
 
 
-                        self?.geoCoder.reverseGeocodeLocation(location) { (placemarks, error) -> Void in
+                        self?.geoCoder.reverseGeocodeLocation(location) { (placemarks, _) -> Void in
 
                             let placeArray = placemarks as [CLPlacemark]!
 
@@ -129,8 +129,7 @@ class ViewControllerTV: UIViewController {
                             print(placeMark.addressDictionary!)
 
                             // Location name
-                            if let locationName = placeMark.addressDictionary?["City"] as? NSString
-                            {
+                            if let locationName = placeMark.addressDictionary?["City"] as? NSString {
                                 self?.currentTimeLabel.text = locationName as String
                             }
                         }
@@ -177,7 +176,7 @@ class ViewControllerTV: UIViewController {
         }
     }
 
-    //MARK: - IBActions
+    // MARK: - IBActions
 	@IBAction func refresh() {
 		getCurrentWeatherData()
 		
