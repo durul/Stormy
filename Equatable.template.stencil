@@ -1,0 +1,11 @@
+{% for type in types.structs %}
+extension {{ type.name }} : Equatable {}
+func ==(lhs: {{ type.name }}, rhs: {{ type.name }}) -> Bool
+{
+	{% for var in type.variables %}
+	guard lhs.{{ var.name }} == rhs.{{ var.name }} else { return false }
+	{% endfor %}
+	return true
+}
+
+{% endfor %}
