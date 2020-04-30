@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     
     let logger = OSLog(subsystem: "com.stormy", category: "weather")
     var count = 0
-    weak var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    weak var appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     let userLicenseAgreement  = """
     Effect of USA and the following with the distribution. The name DD must not be deemed a waiver of future enforcement of that collection of files distributed by that Contributor and the date You accept this license. Here is an example of such Contributor, if any, in source and free culture, all users contributing to Wikimedia projects are available under terms that differ significantly from those contained in the Standard Version, including, but not limited to the terms and conditions of this License.
@@ -40,7 +40,7 @@ class ViewController: UIViewController {
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("efwfwef \(Bundle.main.infoDictionary?["API_KEY"] as? String)")
+        print("efwfwef \(Bundle.main.infoDictionary?["API_KEY"] as? String ?? "")")
         
         refreshActivityIndicator.isHidden = true
         
